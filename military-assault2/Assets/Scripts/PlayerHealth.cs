@@ -9,7 +9,8 @@ public class PlayerHealth : MonoBehaviour
   public int curHealth;
  
   public float healthBarLength;
-  public float damage;
+  public int damage;
+  public float distance;
 
   public GameObject player;
 
@@ -32,7 +33,7 @@ public class PlayerHealth : MonoBehaviour
   // Update is called once per frame
   void Update()
   {
-    healthText.SetText(currentHealth + "/" + maxHealth);
+    healthText.SetText(curHealth + "/" + maxHealth);
     AddjustCurrentHealth(damage);
 
     if (curHealth == 5)
@@ -42,7 +43,7 @@ public class PlayerHealth : MonoBehaviour
 
     if(isAlive == false)
         {
-            FallDamage();
+           
         }
 
   }
@@ -84,13 +85,14 @@ public class PlayerHealth : MonoBehaviour
   public void OnCollisionEnter()
   {
     //enter is mijn Vector3
-    enter = player.collision.GameObject;
+    enter = player.transform.position;
+    distance = Vector3.Distance
   }
 
   public void OnCollisionExit()
   {
     //exit is mijn Vector3
-    exit = player.collision.GameObject;
+    exit = player.transform.position;
   }
 }
 
