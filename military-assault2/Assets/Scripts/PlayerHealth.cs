@@ -6,7 +6,7 @@ using TMPro;
 public class PlayerHealth : MonoBehaviour
 {
   public int maxHealth = 100;
-  public int curHealth;
+  public int curHealth = 100;
  
   public float healthBarLength;
   public int damage;
@@ -34,9 +34,23 @@ public class PlayerHealth : MonoBehaviour
   void Update()
   {
     healthText.SetText(curHealth + "/" + maxHealth);
-    AddjustCurrentHealth(damage);
+        AddjustCurrentHealth(damage);
+        if(distance < 2 || distance > 4)
+        {
+            curHealth = 10;
+        }
 
-    if (curHealth == 5)
+        if (distance < 4 || distance > 6)
+        {
+            curHealth = 30;
+        }
+
+        if (distance < 6 || distance > 8)
+        {
+            curHealth = 50;
+        }
+
+        if (curHealth == 20)
         {
             Destroy(player);
         }
@@ -86,7 +100,7 @@ public class PlayerHealth : MonoBehaviour
   {
     //enter is mijn Vector3
     enter = player.transform.position;
-    distance = Vector3.Distance
+        distance = Vector3.Distance(enter, exit);
   }
 
   public void OnCollisionExit()

@@ -570,8 +570,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 819849403}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.61844563, y: 4.07, z: 11.009981}
-  m_LocalScale: {x: 2, y: 6, z: 2}
+  m_LocalPosition: {x: 0.61844563, y: 13.5, z: 11.009981}
+  m_LocalScale: {x: 2, y: 20, z: 2}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -1020,7 +1020,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1761587600}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.69, y: 8.52, z: 10.92}
+  m_LocalPosition: {x: 0.69, y: 27.4, z: 10.92}
   m_LocalScale: {x: 1, y: 2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1085,7 +1085,8 @@ MonoBehaviour:
   maxHealth: 100
   curHealth: 0
   healthBarLength: 0
-  damage: 0
+  damage: 100
+  distance: 0
   player: {fileID: 1761587600}
   velocity: {x: 0, y: 0, z: 0}
   ridgedBody: {fileID: 1761587605}
