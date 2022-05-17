@@ -5,11 +5,11 @@ using TMPro;
 
 public class PlayerHealth : MonoBehaviour
 {
-  public int maxHealth = 100;
-  public int curHealth = 100;
+  public float maxHealth = 100;
+  public float curHealth = 100;
  
   public float healthBarLength;
-  public int damage;
+  public float damage;
   public float distance;
 
   public GameObject player;
@@ -29,51 +29,18 @@ public class PlayerHealth : MonoBehaviour
   {
     ridgedBody = GetComponent<Rigidbody>();
   }
- 
-  // Update is called once per frame
-  void Update()
-  {
-    healthText.SetText(curHealth + "/" + maxHealth);
-        AddjustCurrentHealth(damage);
-        if(distance < 2 || distance > 4)
-        {
-            curHealth = 10;
-        }
 
-        if (distance < 4 || distance > 6)
-        {
-            curHealth = 30;
-        }
-
-        if (distance < 6 || distance > 8)
-        {
-            curHealth = 50;
-        }
-
-        if (curHealth == 20)
-        {
-            Destroy(player);
-        }
-
-    if(isAlive == false)
-        {
-           
-        }
-
-  }
-
-  void FixedUpdate() 
+    // Update is called once per frame
+    void Update()
     {
-        if(isAlive)
-        {
-            isAlive = Vector3.Distance(ridgedBody.velocity, velocity) < decelerationTolerance;
-            velocity = ridgedBody.velocity;
-        }
+        healthText.text = (curHealth.ToString("f0") + "/" + maxHealth);
+        AddjustCurrentHealth(damage);
     }
  
-  public void AddjustCurrentHealth(int adj)
+  public void AddjustCurrentHealth(float adj)
   {
     curHealth += adj;
+        print(adj);
   
     if (curHealth < 0)
     {
@@ -94,19 +61,6 @@ public class PlayerHealth : MonoBehaviour
     {
       curHealth = 100;
     }
-  }
-
-  public void OnCollisionEnter()
-  {
-    //enter is mijn Vector3
-    enter = player.transform.position;
-        distance = Vector3.Distance(enter, exit);
-  }
-
-  public void OnCollisionExit()
-  {
-    //exit is mijn Vector3
-    exit = player.transform.position;
   }
 }
 
