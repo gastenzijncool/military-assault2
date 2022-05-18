@@ -30,6 +30,8 @@ public class PlayerJump : MonoBehaviour
         }
 
         else if (isGrounded && jumptime > falldamagetime)
-            GetComponent<PlayerHealth>().AddjustCurrentHealth(-(multiplier * jumptime -falldamagetime));
+        {
+            GetComponent<PlayerHealth>().AddjustCurrentHealth(-(multiplier * jumptime - falldamagetime));
+        }
     }
 }

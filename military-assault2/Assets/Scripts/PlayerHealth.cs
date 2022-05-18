@@ -16,8 +16,6 @@ public class PlayerHealth : MonoBehaviour
 
   public Vector3 velocity;
   public Rigidbody ridgedBody;
-  public bool isAlive = true;
-  private double decelerationTolerance = 12.0;
 
   public TextMeshProUGUI healthText;
 
@@ -40,7 +38,7 @@ public class PlayerHealth : MonoBehaviour
   public void AddjustCurrentHealth(float adj)
   {
     curHealth += adj;
-        print(adj);
+        //print(adj);
   
     if (curHealth < 0)
     {

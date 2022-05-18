@@ -5,8 +5,8 @@ using UnityEngine;
 public class EnemyHealth2 : MonoBehaviour
 {
     public float health;
+    public int damage;
 
-    public GameObject Enemy;
     public GameObject bulletHoleGraphic;
 
     // Start is called before the first frame update
@@ -18,15 +18,18 @@ public class EnemyHealth2 : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(health == 0)
-        {
-            Destroy(Enemy);
-            //Destroy(bulletHoleGraphic);
-        }
+        
     }
 
-    public void TakeDamage()
+    public void TakeDamage(int dmg)
     {
-        health -= 20;
+        damage += dmg;
+        print(dmg);
+
+        if (health <= 0)
+        {
+            Destroy(gameObject);
+            //Destroy(bulletHoleGraphic);
+        }
     }
 }

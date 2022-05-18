@@ -10,6 +10,7 @@ public class GunShooting : MonoBehaviour
     public int magazineSize, bulletsPerTap;
     public bool allowButtonHold;
     int bulletsLeft, bulletsShot;
+    public int damageGun;
 
     //bools 
     bool shooting, readyToShoot, reloading;
@@ -49,7 +50,8 @@ public class GunShooting : MonoBehaviour
         }
 
         //Shoot
-        if (readyToShoot && shooting && !reloading && bulletsLeft > 0){
+        if (readyToShoot && shooting && !reloading && bulletsLeft > 0)
+        {
             bulletsShot = bulletsPerTap;
             Shoot();
         }
@@ -71,7 +73,9 @@ public class GunShooting : MonoBehaviour
            Debug.Log(rayHit.collider.name);
 
             if (rayHit.collider.CompareTag("Enemy"))
-                rayHit.collider.GetComponent<EnemyHealth2>().TakeDamage();
+            {
+                rayHit.collider.GetComponent<EnemyHealth2>().TakeDamage(damageGun);
+            }
         }
 
         //Graphics
@@ -103,6 +107,6 @@ public class GunShooting : MonoBehaviour
     public void Graphics()
     {
         //Instantiate(bulletHoleGraphic, rayHit.point, Quaternion.Euler(0, 180, 0));
-        Instantiate(muzzleFlash, attackPoint.position, Quaternion.identity);
+        //Instantiate(muzzleFlash, attackPoint.position, Quaternion.identity);
     }
 }
