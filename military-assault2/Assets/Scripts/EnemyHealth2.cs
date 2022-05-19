@@ -23,8 +23,8 @@ public class EnemyHealth2 : MonoBehaviour
 
     public void TakeDamage(int dmg)
     {
-        damage += dmg;
-        print(dmg);
+        health -= dmg;
+        //print(dmg);
 
         if (health <= 0)
         {

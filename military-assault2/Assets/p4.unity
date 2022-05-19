@@ -459,7 +459,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 607999962}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.01, y: 0.551, z: 0.23}
+  m_LocalPosition: {x: 0.01, y: 0.36, z: 0.23}
   m_LocalScale: {x: 1, y: 0.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -707,7 +707,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1128811393}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.51, y: 0.41, z: 1.06}
+  m_LocalPosition: {x: 0.51, y: 0.26, z: 0.47}
   m_LocalScale: {x: 0.2, y: 0.2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -959,7 +959,7 @@ GameObject:
   - component: {fileID: 1335454294}
   m_Layer: 3
   m_Name: Enemy
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1350,7 +1350,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 100
-  curHealth: 0
+  curHealth: 100
   healthBarLength: 0
   damage: 100
   distance: 0
@@ -1358,8 +1358,6 @@ MonoBehaviour:
   velocity: {x: 0, y: 0, z: 0}
   ridgedBody: {fileID: 1761587605}
   healthText: {fileID: 1510225998}
-  enter: {x: 0, y: 0, z: 0}
-  exit: {x: 0, y: 0, z: 0}
 --- !u!114 &1761587608
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1376,7 +1374,7 @@ MonoBehaviour:
   jumpPower: {x: 0, y: 5, z: 0}
   jumptime: 0
   falldamagetime: 1
-  multiplier: 2
+  multiplier: 10
   mask:
     serializedVersion: 2
     m_Bits: 64

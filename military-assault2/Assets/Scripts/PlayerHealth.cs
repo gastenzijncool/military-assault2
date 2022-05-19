@@ -18,9 +18,6 @@ public class PlayerHealth : MonoBehaviour
   public Rigidbody ridgedBody;
 
   public TextMeshProUGUI healthText;
-
-  public Vector3 enter;
-  public Vector3 exit;
  
   // Use this for initialization
   void Start()
@@ -32,13 +29,12 @@ public class PlayerHealth : MonoBehaviour
     void Update()
     {
         healthText.text = (curHealth.ToString("f0") + "/" + maxHealth);
-        AddjustCurrentHealth(damage);
     }
  
   public void AddjustCurrentHealth(float adj)
   {
+    Debug.Log(adj);
     curHealth += adj;
-        //print(adj);
   
     if (curHealth < 0)
     {
