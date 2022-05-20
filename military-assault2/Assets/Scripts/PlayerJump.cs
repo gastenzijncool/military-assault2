@@ -5,12 +5,20 @@ using UnityEngine;
 public class PlayerJump : MonoBehaviour
 {
     public bool isGrounded;
+
     public Vector3 jumpPower;
-    public float jumptime;
-    public float falldamagetime;
-    public float multiplier;
+
+    public int falldamagetime;
+    public int multiplier;
+
     public LayerMask mask;
 
+    public float jumpTimeFloat;
+
+    public void Start()
+    {
+        jumpPower.y = 5;
+    }
     void Update()
     {
         isGrounded = Physics.CheckSphere(transform.position - new Vector3(0, 1, 0), .5f, mask);    
@@ -18,20 +26,23 @@ public class PlayerJump : MonoBehaviour
         {
             if(isGrounded==true)
             {
-                isGrounded = false;
                 GetComponent<Rigidbody>().velocity += jumpPower;
-                jumptime = 0;
+                jumpTimeFloat = 0;
             }
+        }
+        else
+        {
+            isGrounded = false;
         }
 
         if (!isGrounded)
         {
-            jumptime += Time.deltaTime;
+            jumpTimeFloat += 1 * Time.deltaTime;
         }
 
-        else if (isGrounded && jumptime > falldamagetime)
+        else if (isGrounded == true && jumpTimeFloat > falldamagetime)
         {
-            GetComponent<PlayerHealth>().AddjustCurrentHealth(-(multiplier * jumptime - falldamagetime));
+            GetComponent<PlayerHealth>().AddjustCurrentHealth(-(multiplier * jumpTimeFloat - falldamagetime));
         }
     }
 }
