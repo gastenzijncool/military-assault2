@@ -10,8 +10,8 @@ public class CanvasScript : MonoBehaviour
     public void MainMenu()
     {
         Menu.SetActive(false);
-        Magazine.SetActive(true);
-        Crosshair.SetActive(true);
+       // Magazine.SetActive(true);
+       // Crosshair.SetActive(true);
         Cursor.lockState = CursorLockMode.Locked;
     }
 
