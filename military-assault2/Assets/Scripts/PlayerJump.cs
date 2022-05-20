@@ -27,12 +27,16 @@ public class PlayerJump : MonoBehaviour
             if(isGrounded==true)
             {
                 GetComponent<Rigidbody>().velocity += jumpPower;
-                jumpTimeFloat = 0;
             }
         }
-        else
+        else if(Input.GetButtonUp("Jump"))
         {
             isGrounded = false;
+        }
+
+        if(isGrounded == true)
+        {
+            jumpTimeFloat = 0;
         }
 
         if (!isGrounded)
@@ -40,7 +44,7 @@ public class PlayerJump : MonoBehaviour
             jumpTimeFloat += 1 * Time.deltaTime;
         }
 
-        else if (isGrounded == true && jumpTimeFloat > falldamagetime)
+        else if (isGrounded == true && jumpTimeFloat >=0.5 )
         {
             GetComponent<PlayerHealth>().AddjustCurrentHealth(-(multiplier * jumpTimeFloat - falldamagetime));
         }
