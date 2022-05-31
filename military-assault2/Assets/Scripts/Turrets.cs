@@ -6,39 +6,48 @@ public class Turrets : MonoBehaviour
 {
     public GameObject turretFullHealth;
     public GameObject turretHalfhealth;
+    //public GameObject turretDestroyed;
 
     public float health;
-    public bool isTurretLow;
+    public bool turretIsLow;
 
     // Start is called before the first frame update
     void Start()
     {
         health = 100f;
-        //Instantiate(turretFullHealth, new Vector3(8f, 4f, 16f), Quaternion.identity);
+        turretHalfhealth.SetActive(false);
+        turretFullHealth.SetActive(true);
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.E))
+        if (health > 50 || health < 39)
         {
-            health -= 10f;
-            if (health <= 50)
-            {
-                isTurretLow = true;
-                Destroy(turretFullHealth);
-            }
+                turretIsLow = true;
+                turretFullHealth.SetActive(false);
+        }
+
+        if(health < 0)
+        {
+            health = 0f;
         }
             
-        if (isTurretLow == true)
+        if (turretIsLow == true)
         {
-            isTurretLow = false;
-            Instantiate(turretHalfhealth, new Vector3(11f, 4f, 11f), Quaternion.identity);
+            turretIsLow = false;
+            turretHalfhealth.SetActive(true);
         }
 
         if(health <= 0)
         {
-            Destroy(turretHalfhealth);
+            turretHalfhealth.SetActive(false);
+            //turretDestroyed.SetActive(true);
         }
+    }
+
+    public void TakeDamageTurret(int dmg)
+    {
+        health -= dmg;
     }
 }
