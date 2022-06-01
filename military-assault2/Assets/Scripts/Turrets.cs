@@ -4,50 +4,32 @@ using UnityEngine;
 
 public class Turrets : MonoBehaviour
 {
-    public GameObject turretFullHealth;
-    public GameObject turretHalfhealth;
-    //public GameObject turretDestroyed;
+    public GameObject [] turrets;
 
     public float health;
-    public bool turretIsLow;
 
     // Start is called before the first frame update
     void Start()
     {
         health = 100f;
-        turretHalfhealth.SetActive(false);
-        turretFullHealth.SetActive(true);
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        if (health > 50 || health < 39)
-        {
-                turretIsLow = true;
-                turretFullHealth.SetActive(false);
-        }
-
-        if(health < 0)
-        {
-            health = 0f;
-        }
-            
-        if (turretIsLow == true)
-        {
-            turretIsLow = false;
-            turretHalfhealth.SetActive(true);
-        }
-
-        if(health <= 0)
-        {
-            turretHalfhealth.SetActive(false);
-            //turretDestroyed.SetActive(true);
-        }
+        turrets[1].SetActive(false);
+        turrets[2].SetActive(false);
     }
 
     public void TakeDamageTurret(int dmg)
     {
         health -= dmg;
+
+        if(health <= 50)
+        {
+            turrets[0].SetActive(false);
+            turrets[1].SetActive(true);
+        }
+
+        if(health <= 0)
+        {
+            turrets[2].SetActive(true);
+            turrets[1].SetActive(false);
+        }
     }
 }

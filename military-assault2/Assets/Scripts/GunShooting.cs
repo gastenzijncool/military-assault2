@@ -78,7 +78,7 @@ public class GunShooting : MonoBehaviour
                 rayHit.collider.GetComponent<EnemyHealth2>().TakeDamage(damageGun);
             }
 
-            if (rayHit.collider.CompareTag("Turret"))
+            if (rayHit.collider.CompareTag("Enemy"))
             {
                 //Debug.Log("damageGun" + damageGun);
                 rayHit.collider.GetComponent<Turrets>().TakeDamageTurret(damageGun);
