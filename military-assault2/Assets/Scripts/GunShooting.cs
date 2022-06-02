@@ -20,13 +20,13 @@ public class GunShooting : MonoBehaviour
     public Transform attackPoint;
     public RaycastHit rayHit;
     public LayerMask whatIsEnemy;
-
+    
     //Graphics
     public GameObject muzzleFlash, bulletHoleGraphic;
     public float camShakeMagnitude, camShakeDuration;
     public TextMeshProUGUI text;
 
-    public GameObject Enemy;
+    public GameObject enemy, turret;
 
     private void Awake()
     {
@@ -67,8 +67,11 @@ public class GunShooting : MonoBehaviour
         //Calculate Direction with Spread
         Vector3 direction = fpsCam.transform.forward + new Vector3(x, y, 0);
 
-        //RayCast
-        if (Physics.Raycast(fpsCam.transform.position, direction, out rayHit, range, whatIsEnemy))
+        //Raycast
+        EnemyHealth2 enemyHealth2 = GameObject.Find("Enemy").GetComponent<EnemyHealth2>();
+        Turrets turrets = GameObject.Find("Turrets").GetComponent<Turrets>();
+
+        if (Physics.Raycast(fpsCam.transform.position, direction, out rayHit, range))
         {
            Debug.Log(rayHit.collider.name);
 
@@ -78,7 +81,7 @@ public class GunShooting : MonoBehaviour
                 rayHit.collider.GetComponent<EnemyHealth2>().TakeDamage(damageGun);
             }
 
-            if (rayHit.collider.CompareTag("Enemy"))
+            if (rayHit.collider.CompareTag("Turret"))
             {
                 //Debug.Log("damageGun" + damageGun);
                 rayHit.collider.GetComponent<Turrets>().TakeDamageTurret(damageGun);

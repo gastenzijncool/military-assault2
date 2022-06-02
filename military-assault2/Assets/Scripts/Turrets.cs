@@ -15,10 +15,14 @@ public class Turrets : MonoBehaviour
         turrets[1].SetActive(false);
         turrets[2].SetActive(false);
     }
-
     public void TakeDamageTurret(int dmg)
     {
         health -= dmg;
+
+        if(health < 0)
+        {
+            health = 0;
+        }
 
         if(health <= 50)
         {

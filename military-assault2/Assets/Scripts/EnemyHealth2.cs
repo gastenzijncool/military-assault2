@@ -14,13 +14,6 @@ public class EnemyHealth2 : MonoBehaviour
     {
         health = 100f;
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     public void TakeDamage(int dmg)
     {
         health -= dmg;
