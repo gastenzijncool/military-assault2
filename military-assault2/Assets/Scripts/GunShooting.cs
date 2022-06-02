@@ -68,8 +68,8 @@ public class GunShooting : MonoBehaviour
         Vector3 direction = fpsCam.transform.forward + new Vector3(x, y, 0);
 
         //Raycast
-        EnemyHealth2 enemyHealth2 = GameObject.Find("Enemy").GetComponent<EnemyHealth2>();
-        Turrets turrets = GameObject.Find("Turrets").GetComponent<Turrets>();
+        //EnemyHealth2 enemyHealth2 = GameObject.Find("Enemy").GetComponent<EnemyHealth2>();
+        //Turrets turrets = GameObject.Find("Turrets").GetComponent<Turrets>();
 
         if (Physics.Raycast(fpsCam.transform.position, direction, out rayHit, range))
         {
