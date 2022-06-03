@@ -20,5 +20,10 @@ public class CanvasScript : MonoBehaviour
         Menu.SetActive(false);
         OptionsMenu.SetActive(true);
     }
+    public void BackToMenu()
+    {
+        Menu.SetActive(true);
+        OptionsMenu.SetActive(false);
+    }
 
 }
