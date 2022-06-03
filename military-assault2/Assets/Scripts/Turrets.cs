@@ -69,7 +69,6 @@ public class Turrets : MonoBehaviour
     {
         {
             float dist = Vector3.Distance(player.position, transform.position);
-            print("Distance to other: " + dist);
             distanceToTurret = dist;
         }
     }
@@ -116,7 +115,7 @@ public class Turrets : MonoBehaviour
 
             if (rayHit.collider.CompareTag("Player"))
             {
-                //Debug.Log("damageGun" + damageGun);
+                Debug.Log("damageGun" + damageGun);
                 rayHit.collider.GetComponent<PlayerHealth>().AddjustCurrentHealth(damageGun);
             }
         }

@@ -9,8 +9,6 @@ public class PlayerHealth : MonoBehaviour
   public float curHealth = 100;
  
   public float healthBarLength;
-  public float damage;
-  public float distance;
 
   public GameObject player;
 
