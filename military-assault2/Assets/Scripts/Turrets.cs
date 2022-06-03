@@ -79,8 +79,20 @@ public class Turrets : MonoBehaviour
     }
     private void MyInput()
     {
-        if (allowButtonHold) shooting = (distanceToTurret <= 20);
-        else shooting = (distanceToTurret <= 20);
+        if (allowButtonHold)
+        {
+            if(distanceToTurret <= 10)
+            {
+                shooting = true;
+            }
+        }
+        else
+        {
+            if(distanceToTurret <= 10)
+            {
+                shooting = true;
+            }
+        }
 
         if (bulletsLeft == 0)
         {
@@ -98,17 +110,10 @@ public class Turrets : MonoBehaviour
     {
         readyToShoot = false;
 
-        //Spread
-        float x = Random.Range(-spread, spread);
-        float y = Random.Range(-spread, spread);
-
         //Calculate Direction with Spread
-        Vector3 direction = fpsCam.transform.forward + new Vector3(x, y, 0);
+        Vector3 direction = fpsCam.transform.forward + new Vector3(2, 2, 0);
 
         //Raycast
-        //EnemyHealth2 enemyHealth2 = GameObject.Find("Enemy").GetComponent<EnemyHealth2>();
-        //Turrets turrets = GameObject.Find("Turrets").GetComponent<Turrets>();
-
         if (Physics.Raycast(fpsCam.transform.position, direction, out rayHit, range))
         {
             Debug.Log(rayHit.collider.name);
@@ -121,7 +126,8 @@ public class Turrets : MonoBehaviour
         }
 
         //Graphics
-        Graphics();
+        //Instantiate(bulletHoleGraphic, rayHit.point, Quaternion.Euler(0, 180, 0));
+        //Instantiate(muzzleFlash, attackPoint.position, Quaternion.identity);
 
         bulletsLeft--;
         bulletsShot--;
@@ -129,7 +135,9 @@ public class Turrets : MonoBehaviour
         Invoke("ResetShot", timeBetweenShooting);
 
         if (bulletsShot > 0 && bulletsLeft > 0)
+        {
             Invoke("Shoot", timeBetweenShots);
+        }
     }
     private void ResetShot()
     {
@@ -144,11 +152,5 @@ public class Turrets : MonoBehaviour
     {
         bulletsLeft = magazineSize;
         reloading = false;
-    }
-
-    public void Graphics()
-    {
-        //Instantiate(bulletHoleGraphic, rayHit.point, Quaternion.Euler(0, 180, 0));
-        //Instantiate(muzzleFlash, attackPoint.position, Quaternion.identity);
     }
 }

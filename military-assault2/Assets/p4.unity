@@ -370,12 +370,12 @@ MonoBehaviour:
   allowButtonHold: 0
   damageGun: 2
   fpsCam: {fileID: 0}
-  attackPoint: {fileID: 0}
+  attackPoint: {fileID: 340384312}
   muzzleFlash: {fileID: 0}
   bulletHoleGraphic: {fileID: 0}
   camShakeMagnitude: 0
   camShakeDuration: 0
-  playerObject: {fileID: 0}
+  playerObject: {fileID: 951074656}
   player: {fileID: 951074664}
   distanceToTurret: 0
 --- !u!4 &340384312
@@ -836,8 +836,6 @@ MonoBehaviour:
   maxHealth: 100
   curHealth: 100
   healthBarLength: 0
-  damage: 0
-  distance: 0
   player: {fileID: 951074656}
   velocity: {x: 0, y: 0, z: 0}
   ridgedBody: {fileID: 951074657}
@@ -1579,7 +1577,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4318379835859240510}
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: 0.375, y: 0.115, z: 0.597}
+  m_LocalPosition: {x: 0.375, y: 0.175, z: 0.597}
   m_LocalScale: {x: 200, y: 100, z: 200}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1614,6 +1612,7 @@ GameObject:
   - component: {fileID: 507214254712476449}
   - component: {fileID: 2372565654977259499}
   - component: {fileID: 4318379835859240511}
+  - component: {fileID: 4318379835859240512}
   m_Layer: 0
   m_Name: Baked Deagle_High_Final
   m_TagString: Untagged
@@ -1654,6 +1653,18 @@ MonoBehaviour:
   text: {fileID: 1248418148}
   enemy: {fileID: 1335454289}
   turret: {fileID: 340384310}
+--- !u!114 &4318379835859240512
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4318379835859240510}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d31e9dbcd4582b449084a994f0df70a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!65 &5152129536606876842
 BoxCollider:
   m_ObjectHideFlags: 0

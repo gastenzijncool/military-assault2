@@ -40,10 +40,21 @@ public class GunShooting : MonoBehaviour
     }
     private void MyInput()
     {
-        if (allowButtonHold) shooting = Input.GetKey(KeyCode.Mouse0);
-        else shooting = Input.GetKeyDown(KeyCode.Mouse0);
+        if (allowButtonHold)
+        {
+            shooting = Input.GetKey(KeyCode.Mouse0);
+        }
 
-        if (Input.GetKeyDown(KeyCode.R) && bulletsLeft < magazineSize && !reloading) Reload();
+        else
+        {
+            shooting = Input.GetKeyDown(KeyCode.Mouse0);
+        }
+
+        if (Input.GetKeyDown(KeyCode.R) && bulletsLeft < magazineSize && !reloading)
+        {
+            Reload();
+        }
+
         if(bulletsLeft == 0)
         {
             Reload();
@@ -68,9 +79,6 @@ public class GunShooting : MonoBehaviour
         Vector3 direction = fpsCam.transform.forward + new Vector3(x, y, 0);
 
         //Raycast
-        //EnemyHealth2 enemyHealth2 = GameObject.Find("Enemy").GetComponent<EnemyHealth2>();
-        //Turrets turrets = GameObject.Find("Turrets").GetComponent<Turrets>();
-
         if (Physics.Raycast(fpsCam.transform.position, direction, out rayHit, range))
         {
            Debug.Log(rayHit.collider.name);
@@ -89,7 +97,8 @@ public class GunShooting : MonoBehaviour
         }
 
         //Graphics
-        Graphics();
+        //Instantiate(bulletHoleGraphic, rayHit.point, Quaternion.Euler(0, 180, 0));
+        //Instantiate(muzzleFlash, attackPoint.position, Quaternion.identity);
 
         bulletsLeft--;
         bulletsShot--;
@@ -112,11 +121,5 @@ public class GunShooting : MonoBehaviour
     {
         bulletsLeft = magazineSize;
         reloading = false;
-    }
-
-    public void Graphics()
-    {
-        //Instantiate(bulletHoleGraphic, rayHit.point, Quaternion.Euler(0, 180, 0));
-        //Instantiate(muzzleFlash, attackPoint.position, Quaternion.identity);
     }
 }
