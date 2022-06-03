@@ -5,9 +5,9 @@ using UnityEngine;
 public class CanvasScript : MonoBehaviour
 {
     public GameObject Menu;
+    public GameObject OptionsMenu;
     public GameObject Magazine;
     public GameObject Crosshair;
-    public GameObject OptionsMenu;
     public void MainMenu()
     {
         Menu.SetActive(false);
