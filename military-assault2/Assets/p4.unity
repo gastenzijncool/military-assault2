@@ -360,6 +360,24 @@ MonoBehaviour:
   - {fileID: 3460604357051780116}
   - {fileID: 1365553200}
   health: 0
+  timeBetweenShooting: 1
+  spread: 0
+  range: 20
+  reloadTime: 1
+  timeBetweenShots: 1
+  magazineSize: 50
+  bulletsPerTap: 0
+  allowButtonHold: 0
+  damageGun: 2
+  fpsCam: {fileID: 0}
+  attackPoint: {fileID: 0}
+  muzzleFlash: {fileID: 0}
+  bulletHoleGraphic: {fileID: 0}
+  camShakeMagnitude: 0
+  camShakeDuration: 0
+  playerObject: {fileID: 0}
+  player: {fileID: 951074664}
+  distanceToTurret: 0
 --- !u!4 &340384312
 Transform:
   m_ObjectHideFlags: 0
@@ -633,7 +651,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &878660625
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1406,7 +1424,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 6ce4e30b42484a34ab411ef6427f212e, type: 2}
+  - {fileID: 2100000, guid: bfadae16be2ce8a42a7fb4321d6301db, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1523,7 +1541,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: bfadae16be2ce8a42a7fb4321d6301db, type: 2}
+  - {fileID: 2100000, guid: 6ce4e30b42484a34ab411ef6427f212e, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1615,15 +1633,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9115630e077ce9e4486ae7cec8c9222e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeBetweenShooting: 0.5
+  timeBetweenShooting: 1
   spread: 0
-  range: 30
-  reloadTime: 1
-  timeBetweenShots: 1
-  magazineSize: 40
+  range: 100
+  reloadTime: 3
+  timeBetweenShots: 0.001
+  magazineSize: 7
   bulletsPerTap: 1
   allowButtonHold: 0
-  damageGun: 20
+  damageGun: 80
   fpsCam: {fileID: 607999964}
   attackPoint: {fileID: 796007453}
   whatIsEnemy:
