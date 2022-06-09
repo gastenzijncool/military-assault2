@@ -26,7 +26,7 @@ public class PlayerMovement : MonoBehaviour
         crouchSpeed = 2f;
         walkSpeed = 5f;
         sprintSpeed = 10f;
-        Cursor.lockState = CursorLockMode.Locked;
+        
     }
 
     void Update()
