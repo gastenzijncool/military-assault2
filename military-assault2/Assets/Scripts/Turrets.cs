@@ -25,7 +25,6 @@ public class Turrets : MonoBehaviour
 
     //Graphics
     public GameObject muzzleFlash, bulletHoleGraphic;
-    public float camShakeMagnitude, camShakeDuration;
 
     public GameObject playerObject;
 
@@ -64,6 +63,8 @@ public class Turrets : MonoBehaviour
     public void Update()
     {
         DistancePlayerAndTurret();
+
+        transform.LookAt(player);
     }
     void DistancePlayerAndTurret()
     {

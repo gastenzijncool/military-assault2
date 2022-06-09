@@ -373,8 +373,6 @@ MonoBehaviour:
   attackPoint: {fileID: 340384312}
   muzzleFlash: {fileID: 0}
   bulletHoleGraphic: {fileID: 0}
-  camShakeMagnitude: 0
-  camShakeDuration: 0
   playerObject: {fileID: 951074656}
   player: {fileID: 951074664}
   distanceToTurret: 0
@@ -1576,8 +1574,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4318379835859240510}
-  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: 0.375, y: 0.175, z: 0.597}
+  m_LocalRotation: {x: -0, y: 1, z: -0, w: 0}
+  m_LocalPosition: {x: 0.375, y: 0.17499995, z: 0.597}
   m_LocalScale: {x: 200, y: 100, z: 200}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1646,8 +1644,8 @@ MonoBehaviour:
   whatIsEnemy:
     serializedVersion: 2
     m_Bits: 8
-  muzzleFlash: {fileID: 0}
-  bulletHoleGraphic: {fileID: 0}
+  muzzleFlash: {fileID: 5491755832045122584, guid: 6b65b92add728f944ae58ef085509c5f, type: 3}
+  bulletHoleGraphic: {fileID: 5491755832045122584, guid: 6b65b92add728f944ae58ef085509c5f, type: 3}
   camShakeMagnitude: 5
   camShakeDuration: 5
   text: {fileID: 1248418148}
@@ -1660,11 +1658,15 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4318379835859240510}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6d31e9dbcd4582b449084a994f0df70a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sensitivity: 200
+  xRotation: 0
+  yRotation: 0
+  gun: {fileID: 3505532482016107652}
 --- !u!65 &5152129536606876842
 BoxCollider:
   m_ObjectHideFlags: 0
