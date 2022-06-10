@@ -7,7 +7,6 @@ public class EnemyHealth2 : MonoBehaviour
     public float health;
     public int damage;
 
-    public GameObject bulletHoleGraphic;
 
     // Start is called before the first frame update
     void Start()

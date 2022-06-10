@@ -16,7 +16,7 @@ public class Turrets : MonoBehaviour
     public int damageGun;
 
     //bools 
-    bool shooting, readyToShoot, reloading;
+    bool shooting, reloading;
 
     //Reference
     public Camera fpsCam;
@@ -76,7 +76,6 @@ public class Turrets : MonoBehaviour
     private void Awake()
     {
         bulletsLeft = magazineSize;
-        readyToShoot = true;
     }
     private void MyInput()
     {
@@ -101,7 +100,7 @@ public class Turrets : MonoBehaviour
         }
 
         //Shoot
-        if (readyToShoot && shooting && !reloading && bulletsLeft > 0)
+        if (shooting && !reloading && bulletsLeft > 0)
         {
             bulletsShot = bulletsPerTap;
             Shoot();
@@ -109,10 +108,9 @@ public class Turrets : MonoBehaviour
     }
     private void Shoot()
     {
-        readyToShoot = false;
 
         //Calculate Direction with Spread
-        Vector3 direction = fpsCam.transform.forward + new Vector3(2, 2, 0);
+        Vector3 direction = fpsCam.transform.forward + new Vector3(0, 0, 0);
 
         //Raycast
         if (Physics.Raycast(fpsCam.transform.position, direction, out rayHit, range))
@@ -139,10 +137,6 @@ public class Turrets : MonoBehaviour
         {
             Invoke("Shoot", timeBetweenShots);
         }
-    }
-    private void ResetShot()
-    {
-        readyToShoot = true;
     }
     private void Reload()
     {
