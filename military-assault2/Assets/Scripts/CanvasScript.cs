@@ -6,14 +6,14 @@ public class CanvasScript : MonoBehaviour
 {
     public GameObject Menu;
     public GameObject OptionsMenu;
-    public GameObject Magazine;
-    public GameObject Crosshair;
+    public GameObject HUD;
+    public GameObject Music;
     public void MainMenu()
     {
         Menu.SetActive(false);
-       // Magazine.SetActive(true);
-       // Crosshair.SetActive(true);
         Cursor.lockState = CursorLockMode.Locked;
+        HUD.SetActive(true);
+        Music.SetActive(false);
     }
     public void Options()
     {

@@ -19,7 +19,7 @@ MonoBehaviour:
     width: 1920
     height: 989
   m_ShowMode: 4
-  m_Title: Scene
+  m_Title: Game
   m_RootView: {fileID: 6}
   m_MinSize: {x: 875, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
@@ -43,8 +43,8 @@ MonoBehaviour:
     y: 0
     width: 454
     height: 939
-  m_MinSize: {x: 276, y: 71}
-  m_MaxSize: {x: 4001, y: 4021}
+  m_MinSize: {x: 275, y: 50}
+  m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 14}
   m_Panes:
   - {fileID: 14}
@@ -75,7 +75,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 200}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 0
-  controlID: 347
+  controlID: 125
 --- !u!114 &4
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -224,7 +224,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 200}
   m_MaxSize: {x: 16192, y: 16192}
   vertical: 1
-  controlID: 119
+  controlID: 126
 --- !u!114 &10
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -249,7 +249,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 100}
   m_MaxSize: {x: 16192, y: 8096}
   vertical: 0
-  controlID: 120
+  controlID: 127
 --- !u!114 &11
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -346,22 +346,22 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets
+    - Assets/Sounds
     m_Globs: []
     m_OriginalText: 
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets
+  - Assets/Sounds
   m_LastFoldersGridSize: -1
   m_LastProjectPath: C:\Users\gastl\Documents\GitHub\military-assault2\military-assault2
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 79}
-    m_SelectedIDs: 426a0000
-    m_LastClickedID: 27202
-    m_ExpandedIDs: 00000000426a0000866a0000a86a000000ca9a3b
+    m_SelectedIDs: 8e6a0000
+    m_LastClickedID: 27278
+    m_ExpandedIDs: 00000000686a0000706a000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -389,7 +389,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000426a0000
+    m_ExpandedIDs: 00000000686a0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -516,10 +516,10 @@ MonoBehaviour:
     m_SaveData: []
   m_SceneHierarchy:
     m_TreeViewState:
-      scrollPos: {x: 0, y: 127}
+      scrollPos: {x: 0, y: 0}
       m_SelectedIDs: 
       m_LastClickedID: 0
-      m_ExpandedIDs: 36c6feffa8cefeff76d2feffa4d2feff06ecfeff56f4feff78f4feffb0f5feff68fffeff260affffe42dffff8038ffff8238ffff8a40ffffb85cffffbc5effffbe5effff0c7effff7a80ffff74a2ffff5aa4ffff8cc2fffff4c4ffffb0c8ffff38fbffffc27f0000de7f0000e87f0000708b0000a08b00004c94000044a5000034ba00008edb0000aadb0000b4db0000f6db0000f607010086090100a86d0100c87001005a7201002c7901006ae101007ce10100cc0c02005e0e02006e0f020030150200
+      m_ExpandedIDs: 38fbffff965d00000e5f000048650000d66500003666000040660000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -768,9 +768,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: -39.544342, y: 34.199738, z: -44.45885}
+    m_Target: {x: -64.85781, y: -5.833595, z: -32.67433}
     speed: 2
-    m_Value: {x: -39.544342, y: 34.199738, z: -44.45885}
+    m_Value: {x: -64.85781, y: -5.833595, z: -32.67433}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -817,13 +817,13 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
-    m_Target: {x: 0.39058244, y: -0.21132337, z: 0.0921671, w: 0.89155823}
+    m_Target: {x: 0.24699217, y: 0.1432462, z: -0.036849774, w: 0.9579817}
     speed: 2
-    m_Value: {x: 0.3906064, y: -0.20992461, z: 0.09155444, w: 0.8916143}
+    m_Value: {x: 0.2469167, y: 0.14320244, z: -0.036838513, w: 0.957689}
   m_Size:
-    m_Target: 11.925186
+    m_Target: 14.86095
     speed: 2
-    m_Value: 11.925186
+    m_Value: 14.86095
   m_Ortho:
     m_Target: 0
     speed: 2
