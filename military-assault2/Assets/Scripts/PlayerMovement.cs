@@ -39,7 +39,7 @@ public class PlayerMovement : MonoBehaviour
         transform.Translate(movement * walkSpeed * Time.deltaTime);
         if (movement != Vector3.zero)
         {
-            walking.volume = 1;
+            walking.volume = 0.25f;
         }
         else
         {
