@@ -23,7 +23,9 @@ public class TurretScript2 : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.LookAt(player);
+        //transform.LookAt(player);
+        transform.LookAt(new Vector3 (player.position.x, transform.position.y, transform.position.z));
+
 
         float dist = Vector3.Distance(player.position, transform.position);
         distanceToTurret = dist;
