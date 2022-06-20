@@ -25,6 +25,8 @@ public class GunShooting : MonoBehaviour
     public GameObject muzzleFlash, bulletHoleGraphic;
     public float camShakeMagnitude, camShakeDuration;
     public TextMeshProUGUI text;
+    public AudioSource gunShot;
+    public AudioSource gunReload;
 
     public GameObject enemy, turret;
 
@@ -65,6 +67,7 @@ public class GunShooting : MonoBehaviour
         {
             bulletsShot = bulletsPerTap;
             Shoot();
+            gunShot.Play();
         }
     }
     private void Shoot()
@@ -116,6 +119,7 @@ public class GunShooting : MonoBehaviour
     {
         reloading = true;
         Invoke("ReloadFinished", reloadTime);
+        gunReload.Play();
     }
     private void ReloadFinished()
     {

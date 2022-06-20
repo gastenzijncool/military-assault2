@@ -19,6 +19,7 @@ public class PlayerMovement : MonoBehaviour
     public Transform player;
     public RaycastHit hit;
     public float zerospeed;
+    public AudioSource walking;
 
     void Start()
     {
@@ -36,6 +37,14 @@ public class PlayerMovement : MonoBehaviour
         vertical = Input.GetAxis("Vertical");
         movement.z = vertical;
         transform.Translate(movement * walkSpeed * Time.deltaTime);
+        if (movement != Vector3.zero)
+        {
+            walking.volume = 0.25f;
+        }
+        else
+        {
+            walking.volume = 0;
+        }
 
         if (Input.GetKeyDown(KeyCode.LeftShift))
         {
@@ -83,7 +92,7 @@ public class PlayerMovement : MonoBehaviour
             transform.localScale += new Vector3(0f, 0.60f, 0f);
             transform.localPosition += new Vector3(0f, 0.30f, 0f);
         }
-    }
+    }// lelijke code!
     
 }
 
