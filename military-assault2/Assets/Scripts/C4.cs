@@ -6,6 +6,7 @@ public class C4 : MonoBehaviour
 {
     public float distanceToHangar;
     public Transform hangar;
+    public GameObject winGame;
     // Start is called before the first frame update
     void Start()
     {
@@ -20,9 +21,9 @@ public class C4 : MonoBehaviour
 
         if(distanceToHangar <= 2)
         {
-            if(Input.GetButtonDown("E"))
+            if(Input.GetKeyDown(KeyCode.E))
             {
-                //Canvas.SetActive;
+                winGame.SetActive(true);
             }
         }
         
