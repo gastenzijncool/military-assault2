@@ -1711,7 +1711,7 @@ MonoBehaviour:
   magazineSize: 50
   bulletsPerTap: 0
   allowButtonHold: 0
-  damageGun: 2
+  damageTurret: 2
   fpsCam: {fileID: 0}
   attackPoint: {fileID: 288244374}
   muzzleFlash: {fileID: 0}
@@ -94423,7 +94423,7 @@ MonoBehaviour:
   magazineSize: 50
   bulletsPerTap: 0
   allowButtonHold: 0
-  damageGun: 2
+  damageTurret: 0
   fpsCam: {fileID: 0}
   attackPoint: {fileID: 8359486676635674570}
   muzzleFlash: {fileID: 0}
@@ -94469,7 +94469,7 @@ MonoBehaviour:
   magazineSize: 50
   bulletsPerTap: 0
   allowButtonHold: 0
-  damageGun: 2
+  damageTurret: 2
   fpsCam: {fileID: 0}
   attackPoint: {fileID: 8359486676892895833}
   muzzleFlash: {fileID: 0}
@@ -94556,7 +94556,7 @@ MonoBehaviour:
   magazineSize: 50
   bulletsPerTap: 0
   allowButtonHold: 0
-  damageGun: 2
+  damageTurret: 0
   fpsCam: {fileID: 0}
   attackPoint: {fileID: 8359486676993308083}
   muzzleFlash: {fileID: 0}
@@ -94656,7 +94656,7 @@ MonoBehaviour:
   magazineSize: 50
   bulletsPerTap: 0
   allowButtonHold: 0
-  damageGun: 2
+  damageTurret: 0
   fpsCam: {fileID: 0}
   attackPoint: {fileID: 8359486677007386166}
   muzzleFlash: {fileID: 0}
@@ -94715,7 +94715,7 @@ MonoBehaviour:
   magazineSize: 50
   bulletsPerTap: 0
   allowButtonHold: 0
-  damageGun: 2
+  damageTurret: 0
   fpsCam: {fileID: 0}
   attackPoint: {fileID: 8359486677539502185}
   muzzleFlash: {fileID: 0}
@@ -94820,7 +94820,7 @@ MonoBehaviour:
   magazineSize: 50
   bulletsPerTap: 0
   allowButtonHold: 0
-  damageGun: 2
+  damageTurret: 0
   fpsCam: {fileID: 0}
   attackPoint: {fileID: 8359486677548201106}
   muzzleFlash: {fileID: 0}
@@ -94879,7 +94879,7 @@ MonoBehaviour:
   magazineSize: 50
   bulletsPerTap: 0
   allowButtonHold: 0
-  damageGun: 2
+  damageTurret: 0
   fpsCam: {fileID: 0}
   attackPoint: {fileID: 8359486677787018061}
   muzzleFlash: {fileID: 0}
@@ -94966,7 +94966,7 @@ MonoBehaviour:
   magazineSize: 50
   bulletsPerTap: 0
   allowButtonHold: 0
-  damageGun: 2
+  damageTurret: 0
   fpsCam: {fileID: 0}
   attackPoint: {fileID: 8359486678236064352}
   muzzleFlash: {fileID: 0}
@@ -95030,7 +95030,7 @@ MonoBehaviour:
   magazineSize: 50
   bulletsPerTap: 0
   allowButtonHold: 0
-  damageGun: 2
+  damageTurret: 0
   fpsCam: {fileID: 0}
   attackPoint: {fileID: 8359486678517607365}
   muzzleFlash: {fileID: 0}

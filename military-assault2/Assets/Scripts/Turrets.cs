@@ -13,7 +13,7 @@ public class Turrets : MonoBehaviour
     public int magazineSize, bulletsPerTap;
     public bool allowButtonHold;
     int bulletsLeft, bulletsShot;
-    public int damageGun;
+    public float damageTurret;
 
     //bools 
     bool shooting, reloading;
@@ -37,6 +37,7 @@ public class Turrets : MonoBehaviour
         health = 1000f;
         turrets[1].SetActive(false);
         turrets[2].SetActive(false);
+        damageTurret = 5f;
     }
     public void TakeDamageTurret(int dmg)
     {
@@ -124,8 +125,8 @@ public class Turrets : MonoBehaviour
 
             if (rayHit.collider.CompareTag("Player"))
             {
-                Debug.Log("damageGun" + damageGun);
-                rayHit.collider.GetComponent<PlayerHealth>().AddjustCurrentHealth(damageGun);
+                Debug.Log("damageTurret" + damageTurret);
+                rayHit.collider.GetComponent<PlayerHealth>().AddjustCurrentHealth(damageTurret);
             }
         }
 
