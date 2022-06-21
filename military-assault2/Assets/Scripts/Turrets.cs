@@ -53,10 +53,15 @@ public class Turrets : MonoBehaviour
             turrets[1].SetActive(true);
         }
 
-        if(health <= 0)
+        if(health <= 100)
         {
             turrets[2].SetActive(true);
             turrets[1].SetActive(false);
+        }
+
+        if (health <= 0)
+        {
+            turrets[2].SetActive(false);
         }
     }
 
