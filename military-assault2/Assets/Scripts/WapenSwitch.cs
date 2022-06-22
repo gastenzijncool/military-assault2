@@ -40,7 +40,7 @@ public class WapenSwitch : MonoBehaviour
         float distC4 = Vector3.Distance(c4.position, transform.position);
         distanceToC4 = distC4;
 
-        if (distanceToAk <= 1)
+        if (distanceToAk <= 2)
         {
             if(Input.GetKeyDown(KeyCode.E))
             {
