@@ -6,7 +6,7 @@ using TMPro;
 public class GunShooting : MonoBehaviour
 {
     //Gun stats
-    public float timeBetweenShooting, spread, range, reloadTime, timeBetweenShots;
+    public float timeBetweenShooting, range, reloadTime, timeBetweenShots;
     public int magazineSize, bulletsPerTap;
     public bool allowButtonHold;
     int bulletsLeft, bulletsShot;
@@ -16,14 +16,11 @@ public class GunShooting : MonoBehaviour
     bool shooting, readyToShoot, reloading;
 
     //Reference
-    public Camera fpsCam;
     public Transform attackPoint;
     public RaycastHit rayHit;
-    public LayerMask whatIsEnemy;
-    
+
     //Graphics
-    public GameObject muzzleFlash, bulletHoleGraphic;
-    public float camShakeMagnitude, camShakeDuration;
+    public GameObject muzzleFlash;
     public TextMeshProUGUI text;
     public AudioSource gunShot;
     public AudioSource gunReload;
@@ -74,15 +71,8 @@ public class GunShooting : MonoBehaviour
     {
         readyToShoot = false;
 
-        //Spread
-        float x = Random.Range(-spread, spread);
-        float y = Random.Range(-spread, spread);
-
-        //Calculate Direction with Spread
-        Vector3 direction = fpsCam.transform.forward + new Vector3(x, y, 0);
-
         //Raycast
-        if (Physics.Raycast(fpsCam.transform.position, direction, out rayHit, range))
+        if (Physics.Raycast(attackPoint.transform.position, transform.forward, out rayHit, range))
         {
            Debug.Log(rayHit.collider.name);
 
@@ -100,7 +90,6 @@ public class GunShooting : MonoBehaviour
         }
 
         //Graphics
-        //Instantiate(bulletHoleGraphic, rayHit.point, Quaternion.Euler(0, 180, 0));
         //Instantiate(muzzleFlash, attackPoint.position, Quaternion.identity);
 
         bulletsLeft--;
@@ -109,7 +98,9 @@ public class GunShooting : MonoBehaviour
         Invoke("ResetShot", timeBetweenShooting);
 
         if(bulletsShot > 0 && bulletsLeft > 0)
-        Invoke("Shoot", timeBetweenShots);
+        {
+            Invoke("Shoot", timeBetweenShots);
+        }   
     }
     private void ResetShot()
     {

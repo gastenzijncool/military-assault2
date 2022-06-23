@@ -69,6 +69,8 @@ public class Turrets : MonoBehaviour
         DistancePlayerAndTurret();
 
         transform.LookAt(player);
+
+        MyInput();
     }
     void DistancePlayerAndTurret()
     {
@@ -87,8 +89,12 @@ public class Turrets : MonoBehaviour
         {
             shooting = true;
         }
-        
 
+        else
+        {
+            shooting = false;
+        }
+        
         if (bulletsLeft == 0)
         {
             Reload();
@@ -117,8 +123,7 @@ public class Turrets : MonoBehaviour
         }
 
         //Graphics
-        //Instantiate(bulletHoleGraphic, rayHit.point, Quaternion.Euler(0, 180, 0));
-        Instantiate(muzzleFlash, attackPoint.position, Quaternion.identity);
+        //Instantiate(muzzleFlash, attackPoint.position, Quaternion.identity);
 
         bulletsLeft--;
         bulletsShot--;
