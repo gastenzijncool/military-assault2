@@ -37,7 +37,7 @@ public class PlayerHealth : MonoBehaviour
   public void AddjustCurrentHealth(float adj)
   {
     Debug.Log(adj);
-    curHealth += adj;
+    curHealth -= adj;
   
     if (curHealth < 0)
     {

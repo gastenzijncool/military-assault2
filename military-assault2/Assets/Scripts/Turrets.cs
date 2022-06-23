@@ -69,6 +69,9 @@ public class Turrets : MonoBehaviour
         DistancePlayerAndTurret();
 
         transform.LookAt(player);
+        Vector3 angles = transform.localEulerAngles;
+        angles.x = 0;
+        transform.localEulerAngles = angles;
 
         MyInput();
     }
@@ -103,22 +106,19 @@ public class Turrets : MonoBehaviour
         //Shoot
         if (shooting && !reloading && bulletsLeft > 0)
         {
-            print("I AM SHOOTING");
             bulletsShot = bulletsPerTap;
             Shoot();
         }
     }
     private void Shoot()
     {
+        PlayerHealth playerHealth = GameObject.Find("player").GetComponent<PlayerHealth>();
         //Raycast
         if (Physics.Raycast(attackPoint.position, transform.forward, out rayHit, range))
         {
-            Debug.Log(rayHit.collider.name);
-
             if (rayHit.collider.CompareTag("Player"))
-            {
-                Debug.Log("damageTurret" + damageTurret);
-                rayHit.collider.GetComponent<PlayerHealth>().AddjustCurrentHealth(damageTurret);
+            {   
+                playerHealth.AddjustCurrentHealth(damageTurret);
             }
         }
 
