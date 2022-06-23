@@ -27,6 +27,11 @@ public class PlayerHealth : MonoBehaviour
     void Update()
     {
         healthText.text = (curHealth.ToString("f0") + "/" + maxHealth);
+
+        if(Input.GetKeyDown(KeyCode.E))
+        {
+            curHealth -= 10f;
+        }
     }
  
   public void AddjustCurrentHealth(float adj)

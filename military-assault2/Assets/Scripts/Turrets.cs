@@ -11,7 +11,6 @@ public class Turrets : MonoBehaviour
     //Gun stats
     public float timeBetweenShooting, spread, range, reloadTime, timeBetweenShots;
     public int magazineSize, bulletsPerTap;
-    public bool allowButtonHold;
     int bulletsLeft, bulletsShot;
     public float damageTurret;
 
@@ -19,7 +18,6 @@ public class Turrets : MonoBehaviour
     bool shooting, reloading;
 
     //Reference
-    public Camera fpsCam;
     public Transform attackPoint;
     public RaycastHit rayHit;
 
@@ -85,20 +83,11 @@ public class Turrets : MonoBehaviour
     }
     private void MyInput()
     {
-        if (allowButtonHold)
+        if(distanceToTurret <= 10)
         {
-            if(distanceToTurret <= 10)
-            {
-                shooting = true;
-            }
+            shooting = true;
         }
-        else
-        {
-            if(distanceToTurret <= 10)
-            {
-                shooting = true;
-            }
-        }
+        
 
         if (bulletsLeft == 0)
         {
@@ -108,18 +97,15 @@ public class Turrets : MonoBehaviour
         //Shoot
         if (shooting && !reloading && bulletsLeft > 0)
         {
+            print("I AM SHOOTING");
             bulletsShot = bulletsPerTap;
             Shoot();
         }
     }
     private void Shoot()
     {
-
-        //Calculate Direction with Spread
-        Vector3 direction = fpsCam.transform.forward + new Vector3(0, 0, 0);
-
         //Raycast
-        if (Physics.Raycast(fpsCam.transform.position, direction, out rayHit, range))
+        if (Physics.Raycast(attackPoint.position, transform.forward, out rayHit, range))
         {
             Debug.Log(rayHit.collider.name);
 
@@ -132,7 +118,7 @@ public class Turrets : MonoBehaviour
 
         //Graphics
         //Instantiate(bulletHoleGraphic, rayHit.point, Quaternion.Euler(0, 180, 0));
-        //Instantiate(muzzleFlash, attackPoint.position, Quaternion.identity);
+        Instantiate(muzzleFlash, attackPoint.position, Quaternion.identity);
 
         bulletsLeft--;
         bulletsShot--;
