@@ -21,12 +21,15 @@ public class PlayerMovement : MonoBehaviour
     public float zerospeed;
     public AudioSource walking;
 
+    public Transform cameraPlayer;
+    public Transform gun;
+
     void Start()
     {
         //rb = gameObject.GetComponent<Rigidbody3D>();
         crouchSpeed = 2f;
         walkSpeed = 5f;
-        sprintSpeed = 10f;
+        sprintSpeed = 7f;
         
     }
 
@@ -37,6 +40,7 @@ public class PlayerMovement : MonoBehaviour
         vertical = Input.GetAxis("Vertical");
         movement.z = vertical;
         transform.Translate(movement * walkSpeed * Time.deltaTime);
+
         if (movement != Vector3.zero)
         {
             walking.volume = 0.25f;
@@ -50,7 +54,7 @@ public class PlayerMovement : MonoBehaviour
         {
             isSprinting = true;
             isWalking = false;
-            walkSpeed = 12f;
+            walkSpeed = 7f;
         }
         else if(Input.GetKeyUp(KeyCode.LeftShift))
         {
@@ -78,21 +82,22 @@ public class PlayerMovement : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.LeftControl))
         {
-            if (crouchToggle == false)
+            crouchToggle = true;
+            if (crouchToggle == true)
             {
-                crouchToggle = true;
-                transform.localScale -= new Vector3(0f, 0.60f, 0f);
-                transform.localPosition -= new Vector3(0f, 0.30f, 0f);
+                cameraPlayer.localPosition -= new Vector3(0f, 0.30f, 0f);
+                gun.localPosition -= new Vector3(0f, 0.30f, 0f);
             }
-        
+
         }
         else if(Input.GetKeyUp(KeyCode.LeftControl))
         {
             crouchToggle = false;
-            transform.localScale += new Vector3(0f, 0.60f, 0f);
-            transform.localPosition += new Vector3(0f, 0.30f, 0f);
+            cameraPlayer.localPosition += new Vector3(0f, 0.30f, 0f);
+            gun.localPosition += new Vector3(0f, 0.30f, 0f);
         }
     }// lelijke code!
+    // Gemaakt door dariel nog, L
     
 }
 

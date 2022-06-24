@@ -11,22 +11,22 @@ public class Turrets : MonoBehaviour
     //Gun stats
     public float timeBetweenShooting, spread, range, reloadTime, timeBetweenShots;
     public int magazineSize, bulletsPerTap;
-    public bool allowButtonHold;
     int bulletsLeft, bulletsShot;
-    public int damageGun;
+    public float damageTurret;
 
     //bools 
     bool shooting, reloading;
+    bool readyToShoot;
 
     //Reference
-    public Camera fpsCam;
     public Transform attackPoint;
     public RaycastHit rayHit;
 
     //Graphics
-    public GameObject muzzleFlash, bulletHoleGraphic;
+    public GameObject muzzleFlash;
 
     public GameObject playerObject;
+    public GameObject turret;
 
     public Transform player;
     public float distanceToTurret;
@@ -37,6 +37,7 @@ public class Turrets : MonoBehaviour
         health = 1000f;
         turrets[1].SetActive(false);
         turrets[2].SetActive(false);
+        damageTurret = 10f;
     }
     public void TakeDamageTurret(int dmg)
     {
@@ -51,12 +52,20 @@ public class Turrets : MonoBehaviour
         {
             turrets[0].SetActive(false);
             turrets[1].SetActive(true);
+            damageTurret = 5f;
         }
 
-        if(health <= 0)
+        if(health <= 100)
         {
             turrets[2].SetActive(true);
             turrets[1].SetActive(false);
+            damageTurret = 2f;
+        }
+
+        if (health <= 0)
+        {
+            Destroy(turret);
+            damageTurret = 0f;
         }
     }
 
@@ -65,6 +74,11 @@ public class Turrets : MonoBehaviour
         DistancePlayerAndTurret();
 
         transform.LookAt(player);
+        Vector3 angles = transform.localEulerAngles;
+        angles.x = 0;
+        transform.localEulerAngles = angles;
+
+        MyInput();
     }
     void DistancePlayerAndTurret()
     {
@@ -76,31 +90,27 @@ public class Turrets : MonoBehaviour
     private void Awake()
     {
         bulletsLeft = magazineSize;
+        readyToShoot = true;
     }
     private void MyInput()
     {
-        if (allowButtonHold)
+        if(distanceToTurret <= 14)
         {
-            if(distanceToTurret <= 10)
-            {
-                shooting = true;
-            }
-        }
-        else
-        {
-            if(distanceToTurret <= 10)
-            {
-                shooting = true;
-            }
+            shooting = true;
         }
 
+        else
+        {
+            shooting = false;
+        }
+        
         if (bulletsLeft == 0)
         {
             Reload();
         }
 
         //Shoot
-        if (shooting && !reloading && bulletsLeft > 0)
+        if (readyToShoot && shooting && !reloading && bulletsLeft > 0)
         {
             bulletsShot = bulletsPerTap;
             Shoot();
@@ -108,24 +118,19 @@ public class Turrets : MonoBehaviour
     }
     private void Shoot()
     {
+        readyToShoot = false;
 
-        //Calculate Direction with Spread
-        Vector3 direction = fpsCam.transform.forward + new Vector3(0, 0, 0);
-
+        PlayerHealth playerHealth = GameObject.Find("player").GetComponent<PlayerHealth>();
         //Raycast
-        if (Physics.Raycast(fpsCam.transform.position, direction, out rayHit, range))
+        if (Physics.Raycast(attackPoint.position, transform.forward, out rayHit, range))
         {
-            Debug.Log(rayHit.collider.name);
-
             if (rayHit.collider.CompareTag("Player"))
-            {
-                Debug.Log("damageGun" + damageGun);
-                rayHit.collider.GetComponent<PlayerHealth>().AddjustCurrentHealth(damageGun);
+            {   
+                playerHealth.AddjustCurrentHealth(damageTurret);
             }
         }
 
         //Graphics
-        //Instantiate(bulletHoleGraphic, rayHit.point, Quaternion.Euler(0, 180, 0));
         //Instantiate(muzzleFlash, attackPoint.position, Quaternion.identity);
 
         bulletsLeft--;
@@ -137,6 +142,11 @@ public class Turrets : MonoBehaviour
         {
             Invoke("Shoot", timeBetweenShots);
         }
+    }
+
+    private void ResetShot()
+    {
+        readyToShoot = true;
     }
     private void Reload()
     {

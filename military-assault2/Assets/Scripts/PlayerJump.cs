@@ -8,45 +8,28 @@ public class PlayerJump : MonoBehaviour
 
     public Vector3 jumpPower;
 
-    public int falldamagetime;
-    public int multiplier;
-
-    public LayerMask mask;
-
-    public float jumpTimeFloat;
-
     public void Start()
     {
         jumpPower.y = 5;
     }
     void Update()
     {
-        isGrounded = Physics.CheckSphere(transform.position - new Vector3(0, 1, 0), .5f, mask);    
-        if (Input.GetButtonDown("Jump"))
-        {
-            if(isGrounded==true)
-            {
-                GetComponent<Rigidbody>().velocity += jumpPower;
-            }
-        }
-        else if(Input.GetButtonUp("Jump"))
-        {
-            isGrounded = false;
-        }
-
         if(isGrounded == true)
         {
-            jumpTimeFloat = 0;
+            if (Input.GetButtonDown("Jump"))
+            {
+                GetComponent<Rigidbody>().velocity += jumpPower;
+                isGrounded = false;
+            }
         }
+        
+    }
 
-        if (!isGrounded)
+    private void OnCollisionEnter(Collision collision)
+    {
+        if(collision.gameObject.tag == "Floor")
         {
-            jumpTimeFloat += 1 * Time.deltaTime;
-        }
-
-        else if (isGrounded == true && jumpTimeFloat >=0.5 )
-        {
-            GetComponent<PlayerHealth>().AddjustCurrentHealth(-(multiplier * jumpTimeFloat - falldamagetime));
+            isGrounded = true;
         }
     }
 }
