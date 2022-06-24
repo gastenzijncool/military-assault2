@@ -11,6 +11,7 @@ public class PlayerHealth : MonoBehaviour
   public GameObject player;
   public Transform medkid;
   public GameObject medkitGameObject;
+  public bool slurpie;
 
   public TextMeshProUGUI healthText;
 
@@ -29,11 +30,22 @@ public class PlayerHealth : MonoBehaviour
         float dist = Vector3.Distance(medkid.position, transform.position);
         distanceToMedkid = dist;
 
-        if (distanceToMedkid <= 1.5)
+        if (distanceToMedkid <= 2)
         {
             if(Input.GetKeyDown(KeyCode.H))
             {
-                curHealth = 100f;
+                slurpie = true;
+
+                if (slurpie == true)
+                {
+                    curHealth += 1 * Time.deltaTime;
+                }
+
+                if(curHealth == 100)
+                {
+                    slurpie = false;
+                }
+
                 medkitGameObject.SetActive(false);
             }
         }
