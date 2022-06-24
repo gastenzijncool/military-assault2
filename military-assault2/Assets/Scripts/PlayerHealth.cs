@@ -11,6 +11,7 @@ public class PlayerHealth : MonoBehaviour
   public GameObject player;
   public Transform medkid;
   public GameObject medkitGameObject;
+  public GameObject gameOver; 
   public bool slurpjuice;
 
   public TextMeshProUGUI healthText;
@@ -24,7 +25,8 @@ public class PlayerHealth : MonoBehaviour
 
         if(curHealth == 0)
         {
-            player.SetActive(false);
+            gameOver.SetActive(true);
+            Cursor.lockState = CursorLockMode.None;
         }
 
         float dist = Vector3.Distance(medkid.position, transform.position);
