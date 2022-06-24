@@ -36,15 +36,16 @@ public class PlayerHealth : MonoBehaviour
             {
                 slurpjuice = true;
 
-                if (slurpjuice == true)
-                {
-                    curHealth += Time.deltaTime * 2f * 1f;
-                }
-                //medkitGameObject.SetActive(false);
+                medkitGameObject.SetActive(false);
             }
         }
 
-        if (curHealth == 100)
+        if (slurpjuice == true)
+        {
+            curHealth += 2f * Time.deltaTime;
+        }
+
+        if (curHealth > 100)
         {
             slurpjuice = false;
         }
