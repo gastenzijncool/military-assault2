@@ -16,15 +16,17 @@ public class Turrets : MonoBehaviour
 
     //bools 
     bool shooting, reloading;
+    bool readyToShoot;
 
     //Reference
     public Transform attackPoint;
     public RaycastHit rayHit;
 
     //Graphics
-    public GameObject muzzleFlash, bulletHoleGraphic;
+    public GameObject muzzleFlash;
 
     public GameObject playerObject;
+    public GameObject turret;
 
     public Transform player;
     public float distanceToTurret;
@@ -35,7 +37,7 @@ public class Turrets : MonoBehaviour
         health = 1000f;
         turrets[1].SetActive(false);
         turrets[2].SetActive(false);
-        damageTurret = 5f;
+        damageTurret = 1f;
     }
     public void TakeDamageTurret(int dmg)
     {
@@ -50,17 +52,21 @@ public class Turrets : MonoBehaviour
         {
             turrets[0].SetActive(false);
             turrets[1].SetActive(true);
+            damageTurret = 0.8f;
         }
 
         if(health <= 100)
         {
             turrets[2].SetActive(true);
             turrets[1].SetActive(false);
+            damageTurret = 0.6f;
         }
 
         if (health <= 0)
         {
-            turrets[2].SetActive(false);
+            //turrets[2].SetActive(false);
+            Destroy(turret);
+            damageTurret = 0f;
         }
     }
 
@@ -85,6 +91,7 @@ public class Turrets : MonoBehaviour
     private void Awake()
     {
         bulletsLeft = magazineSize;
+        readyToShoot = true;
     }
     private void MyInput()
     {
@@ -104,7 +111,7 @@ public class Turrets : MonoBehaviour
         }
 
         //Shoot
-        if (shooting && !reloading && bulletsLeft > 0)
+        if (readyToShoot && shooting && !reloading && bulletsLeft > 0)
         {
             bulletsShot = bulletsPerTap;
             Shoot();
@@ -112,6 +119,8 @@ public class Turrets : MonoBehaviour
     }
     private void Shoot()
     {
+        readyToShoot = false;
+
         PlayerHealth playerHealth = GameObject.Find("player").GetComponent<PlayerHealth>();
         //Raycast
         if (Physics.Raycast(attackPoint.position, transform.forward, out rayHit, range))
@@ -134,6 +143,11 @@ public class Turrets : MonoBehaviour
         {
             Invoke("Shoot", timeBetweenShots);
         }
+    }
+
+    private void ResetShot()
+    {
+        readyToShoot = true;
     }
     private void Reload()
     {

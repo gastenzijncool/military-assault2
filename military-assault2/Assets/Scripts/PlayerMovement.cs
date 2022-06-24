@@ -21,7 +21,7 @@ public class PlayerMovement : MonoBehaviour
     public float zerospeed;
     public AudioSource walking;
 
-    public Transform camera;
+    public Transform cameraPlayer;
     public Transform gun;
 
     void Start()
@@ -85,7 +85,7 @@ public class PlayerMovement : MonoBehaviour
             crouchToggle = true;
             if (crouchToggle == true)
             {
-                camera.localPosition -= new Vector3(0f, 0.30f, 0f);
+                cameraPlayer.localPosition -= new Vector3(0f, 0.30f, 0f);
                 gun.localPosition -= new Vector3(0f, 0.30f, 0f);
             }
 
@@ -93,7 +93,7 @@ public class PlayerMovement : MonoBehaviour
         else if(Input.GetKeyUp(KeyCode.LeftControl))
         {
             crouchToggle = false;
-            camera.localPosition += new Vector3(0f, 0.30f, 0f);
+            cameraPlayer.localPosition += new Vector3(0f, 0.30f, 0f);
             gun.localPosition += new Vector3(0f, 0.30f, 0f);
         }
     }// lelijke code!

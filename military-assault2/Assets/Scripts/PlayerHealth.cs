@@ -8,29 +8,34 @@ public class PlayerHealth : MonoBehaviour
   public float maxHealth = 100;
   public float curHealth = 100;
  
-  public float healthBarLength;
-
   public GameObject player;
-
-  public Vector3 velocity;
-  public Rigidbody ridgedBody;
+  public Transform medkid;
+  public GameObject medkitGameObject;
 
   public TextMeshProUGUI healthText;
- 
-  // Use this for initialization
-  void Start()
-  {
-    ridgedBody = GetComponent<Rigidbody>();
-  }
+
+  public float distanceToMedkid;
 
     // Update is called once per frame
     void Update()
     {
         healthText.text = (curHealth.ToString("f0") + "/" + maxHealth);
 
-        if(Input.GetKeyDown(KeyCode.E))
+        if(curHealth == 0)
         {
-            curHealth -= 10f;
+            player.SetActive(false);
+        }
+
+        float dist = Vector3.Distance(medkid.position, transform.position);
+        distanceToMedkid = dist;
+
+        if (distanceToMedkid <= 1.5)
+        {
+            if(Input.GetKeyDown(KeyCode.H))
+            {
+                curHealth = 100f;
+                medkitGameObject.SetActive(false);
+            }
         }
     }
  
