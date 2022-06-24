@@ -37,7 +37,7 @@ public class Turrets : MonoBehaviour
         health = 1000f;
         turrets[1].SetActive(false);
         turrets[2].SetActive(false);
-        damageTurret = 1f;
+        damageTurret = 10f;
     }
     public void TakeDamageTurret(int dmg)
     {
@@ -52,19 +52,18 @@ public class Turrets : MonoBehaviour
         {
             turrets[0].SetActive(false);
             turrets[1].SetActive(true);
-            damageTurret = 0.8f;
+            damageTurret = 5f;
         }
 
         if(health <= 100)
         {
             turrets[2].SetActive(true);
             turrets[1].SetActive(false);
-            damageTurret = 0.6f;
+            damageTurret = 2f;
         }
 
         if (health <= 0)
         {
-            //turrets[2].SetActive(false);
             Destroy(turret);
             damageTurret = 0f;
         }
@@ -95,7 +94,7 @@ public class Turrets : MonoBehaviour
     }
     private void MyInput()
     {
-        if(distanceToTurret <= 10)
+        if(distanceToTurret <= 14)
         {
             shooting = true;
         }

@@ -29,7 +29,7 @@ public class PlayerMovement : MonoBehaviour
         //rb = gameObject.GetComponent<Rigidbody3D>();
         crouchSpeed = 2f;
         walkSpeed = 5f;
-        sprintSpeed = 10f;
+        sprintSpeed = 7f;
         
     }
 
@@ -54,7 +54,7 @@ public class PlayerMovement : MonoBehaviour
         {
             isSprinting = true;
             isWalking = false;
-            walkSpeed = 12f;
+            walkSpeed = 7f;
         }
         else if(Input.GetKeyUp(KeyCode.LeftShift))
         {

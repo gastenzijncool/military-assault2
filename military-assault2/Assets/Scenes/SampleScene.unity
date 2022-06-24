@@ -1375,13 +1375,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timeBetweenShooting: 1
-  range: 10
+  range: 80
   reloadTime: 3
   timeBetweenShots: 1
   magazineSize: 7
   bulletsPerTap: 1
   allowButtonHold: 0
-  damageGun: 200
+  damageGun: 50
   attackPoint: {fileID: 6817319131257566222}
   muzzleFlash: {fileID: 0}
   text: {fileID: 8355354346398262974}
@@ -5205,7 +5205,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 693723741}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -70.26, y: 1, z: -45.01}
+  m_LocalPosition: {x: -71, y: 1, z: -47.9}
   m_LocalScale: {x: 1, y: 2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -5250,6 +5250,7 @@ MonoBehaviour:
   player: {fileID: 693723741}
   medkid: {fileID: 1472419977}
   medkitGameObject: {fileID: 1472639129}
+  slurpjuice: 0
   healthText: {fileID: 8355354346673194900}
   distanceToMedkid: 0
 --- !u!114 &693723751
@@ -12328,13 +12329,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timeBetweenShooting: 0.2
-  range: 30
+  range: 80
   reloadTime: 2
-  timeBetweenShots: 1
+  timeBetweenShots: 0.2
   magazineSize: 30
   bulletsPerTap: 1
   allowButtonHold: 1
-  damageGun: 30
+  damageGun: 100
   attackPoint: {fileID: 928824645}
   muzzleFlash: {fileID: 0}
   text: {fileID: 1277221474}
@@ -15124,7 +15125,6 @@ GameObject:
   - component: {fileID: 1789952784}
   - component: {fileID: 1778609680}
   - component: {fileID: 1788058483}
-  - component: {fileID: 1789952785}
   m_Layer: 0
   m_Name: crate
   m_TagString: Untagged
@@ -15247,19 +15247,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &1789952785
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1787960784}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: feb7cae06d54ff64094d33bb3676ee6d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  player: {fileID: 693723747}
 --- !u!1 &1790837362
 GameObject:
   m_ObjectHideFlags: 0
@@ -86581,7 +86568,6 @@ GameObject:
   - component: {fileID: 1338463384301517199}
   - component: {fileID: 2683290842632271402}
   - component: {fileID: 204915466307060448}
-  - component: {fileID: 2683290842632271403}
   m_Layer: 0
   m_Name: Baked Deagle_High_Final
   m_TagString: Untagged
@@ -87360,33 +87346,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1862517686917456693}
   m_Mesh: {fileID: 7936601729086242507, guid: db864b7a5e3cfe54795fff5fbae672f7, type: 3}
---- !u!114 &2683290842632271403
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1862517686917456693}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9115630e077ce9e4486ae7cec8c9222e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  timeBetweenShooting: 1
-  range: 10
-  reloadTime: 3
-  timeBetweenShots: 1
-  magazineSize: 7
-  bulletsPerTap: 1
-  allowButtonHold: 0
-  damageGun: 200
-  attackPoint: {fileID: 6817319131257566222}
-  muzzleFlash: {fileID: 0}
-  text: {fileID: 8355354346398262974}
-  gunShot: {fileID: 1077719239}
-  gunReload: {fileID: 5850869070072771170}
-  enemy: {fileID: 0}
-  turret: {fileID: 5339053668535002906, guid: b18e1729200f5494b8aedd6f67ac3951, type: 3}
 --- !u!4 &2773974015754920306
 Transform:
   m_ObjectHideFlags: 0

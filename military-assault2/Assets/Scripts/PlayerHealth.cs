@@ -11,7 +11,7 @@ public class PlayerHealth : MonoBehaviour
   public GameObject player;
   public Transform medkid;
   public GameObject medkitGameObject;
-  public bool slurpie;
+  public bool slurpjuice;
 
   public TextMeshProUGUI healthText;
 
@@ -34,20 +34,19 @@ public class PlayerHealth : MonoBehaviour
         {
             if(Input.GetKeyDown(KeyCode.H))
             {
-                slurpie = true;
+                slurpjuice = true;
 
-                if (slurpie == true)
+                if (slurpjuice == true)
                 {
-                    curHealth += 1 * Time.deltaTime;
+                    curHealth += Time.deltaTime * 2f * 1f;
                 }
-
-                if(curHealth == 100)
-                {
-                    slurpie = false;
-                }
-
-                medkitGameObject.SetActive(false);
+                //medkitGameObject.SetActive(false);
             }
+        }
+
+        if (curHealth == 100)
+        {
+            slurpjuice = false;
         }
     }
  
