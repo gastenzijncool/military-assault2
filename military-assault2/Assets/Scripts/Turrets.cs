@@ -27,6 +27,8 @@ public class Turrets : MonoBehaviour
 
     public GameObject playerObject;
     public GameObject turret;
+    public AudioSource gunShot;
+    public AudioSource gunReload;
 
     public Transform player;
     public float distanceToTurret;
@@ -37,7 +39,7 @@ public class Turrets : MonoBehaviour
         health = 1000f;
         turrets[1].SetActive(false);
         turrets[2].SetActive(false);
-        damageTurret = 10f;
+        damageTurret = 5f;
     }
     public void TakeDamageTurret(int dmg)
     {
@@ -52,14 +54,14 @@ public class Turrets : MonoBehaviour
         {
             turrets[0].SetActive(false);
             turrets[1].SetActive(true);
-            damageTurret = 5f;
+            damageTurret = 3f;
         }
 
         if(health <= 100)
         {
             turrets[2].SetActive(true);
             turrets[1].SetActive(false);
-            damageTurret = 2f;
+            damageTurret = 1f;
         }
 
         if (health <= 0)
@@ -114,6 +116,7 @@ public class Turrets : MonoBehaviour
         {
             bulletsShot = bulletsPerTap;
             Shoot();
+            gunShot.Play();
         }
     }
     private void Shoot()
