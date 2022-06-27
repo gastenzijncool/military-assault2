@@ -29,6 +29,7 @@ public class Turrets : MonoBehaviour
     public GameObject turret;
     public AudioSource gunShot;
     public AudioSource gunReload;
+    public ParticleSystem muzzle;
 
     public Transform player;
     public float distanceToTurret;
@@ -40,6 +41,7 @@ public class Turrets : MonoBehaviour
         turrets[1].SetActive(false);
         turrets[2].SetActive(false);
         damageTurret = 5f;
+        magazineSize = 5;
     }
     public void TakeDamageTurret(int dmg)
     {
@@ -117,6 +119,7 @@ public class Turrets : MonoBehaviour
             bulletsShot = bulletsPerTap;
             Shoot();
             gunShot.Play();
+            muzzle.Play();
         }
     }
     private void Shoot()

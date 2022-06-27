@@ -24,6 +24,7 @@ public class GunShooting : MonoBehaviour
     public TextMeshProUGUI text;
     public AudioSource gunShot;
     public AudioSource gunReload;
+    public ParticleSystem gun;
 
     public GameObject enemy, turret;
 
@@ -65,6 +66,7 @@ public class GunShooting : MonoBehaviour
             bulletsShot = bulletsPerTap;
             Shoot();
             gunShot.Play();
+            gun.Play();
         }
     }
     private void Shoot()
