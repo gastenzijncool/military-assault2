@@ -94,6 +94,7 @@ public class WapenSwitch : MonoBehaviour
                 if (Input.GetKeyDown(KeyCode.E))
                 {
                     winGame.SetActive(true);
+                    Cursor.lockState = CursorLockMode.None;
                 }
             }  
         }
