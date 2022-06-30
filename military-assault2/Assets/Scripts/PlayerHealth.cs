@@ -16,9 +16,15 @@ public class PlayerHealth : MonoBehaviour
   public float slurpjuiceTime = 5;
 
   public TextMeshProUGUI healthText;
+  public GameObject PressE;
+  public bool PressedE;
 
   public float distanceToMedkid;
 
+    private void Start()
+    {
+        PressedE = false;
+    }
     // Update is called once per frame
     void Update()
     {
@@ -35,7 +41,12 @@ public class PlayerHealth : MonoBehaviour
 
         if (distanceToMedkid <= 2)
         {
-            if(Input.GetKeyDown(KeyCode.H))
+            PressedE = true;
+            if( PressedE == true)
+            {
+                PressE.SetActive(true);
+            }
+            if(Input.GetKeyDown(KeyCode.E))
             {
                 slurpjuice = true;
                 Invoke("SlurpjuiceBoolean", slurpjuiceTime);
