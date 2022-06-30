@@ -8,12 +8,19 @@ public class CanvasScript : MonoBehaviour
     public GameObject OptionsMenu;
     public GameObject HUD;
     public GameObject Music;
+    public static bool MenuON;
+
+    private void Start()
+    {
+        MenuON = true;
+    }
     public void MainMenu()
     {
         Menu.SetActive(false);
         Cursor.lockState = CursorLockMode.Locked;
         HUD.SetActive(true);
         Music.SetActive(false);
+        MenuON = false;
     }
     public void Options()
     {

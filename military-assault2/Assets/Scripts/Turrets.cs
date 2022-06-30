@@ -15,7 +15,8 @@ public class Turrets : MonoBehaviour
     public float damageTurret;
 
     //bools 
-    bool shooting, reloading;
+    public bool shooting;
+    bool reloading;
     bool readyToShoot;
 
     //Reference
@@ -43,6 +44,7 @@ public class Turrets : MonoBehaviour
         damageTurret = 5f;
         magazineSize = 5;
         gunShot.volume = 0.75f;
+        range = 10f;
     }
     public void TakeDamageTurret(int dmg)
     {
@@ -76,21 +78,12 @@ public class Turrets : MonoBehaviour
 
     public void Update()
     {
-        DistancePlayerAndTurret();
-
         transform.LookAt(player);
         Vector3 angles = transform.localEulerAngles;
         angles.x = 0;
         transform.localEulerAngles = angles;
 
         MyInput();
-    }
-    void DistancePlayerAndTurret()
-    {
-        {
-            float dist = Vector3.Distance(player.position, transform.position);
-            distanceToTurret = dist;
-        }
     }
     private void Awake()
     {
@@ -99,9 +92,12 @@ public class Turrets : MonoBehaviour
     }
     private void MyInput()
     {
-        if(distanceToTurret <= 20)
+        if (Physics.Raycast(attackPoint.position, transform.forward, out rayHit, range))
         {
-            shooting = true;
+            if (rayHit.collider.CompareTag("Player"))
+            {
+                shooting = true;
+            }
         }
 
         else
