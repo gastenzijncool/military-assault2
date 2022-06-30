@@ -17,7 +17,7 @@ public class Esc : MonoBehaviour
     public void EscBack()
     {
         escMenu.SetActive(false);
-        //hud.SetActive(true);
+        hud.SetActive(true);
         Cursor.lockState = CursorLockMode.Locked;
     }
     public void Options()
@@ -37,7 +37,7 @@ public class Esc : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             escMenu.SetActive(true);
-            //hud.SetActive(false);
+            hud.SetActive(false);
             Cursor.lockState = CursorLockMode.None;
         }
     }

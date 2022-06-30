@@ -26,4 +26,19 @@ public class CanvasScript : MonoBehaviour
         OptionsMenu.SetActive(false);
     }
 
+    List<int> widths = new List<int>() { 1920,1280,800 };
+    List<int> heights = new List<int>() { 1080,720,600 };
+
+    public void SetScreenSize(int index)
+    {
+        bool fullscreen = Screen.fullScreen;
+        int width = widths[index];
+        int height = heights[index];
+        Screen.SetResolution(width, height, fullscreen);
+    }
+
+    public void SetFullscreen(bool _fullscreen)
+    {
+        Screen.fullScreen = _fullscreen;
+    }
 }

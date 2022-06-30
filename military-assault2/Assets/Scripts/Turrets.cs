@@ -98,7 +98,7 @@ public class Turrets : MonoBehaviour
     }
     private void MyInput()
     {
-        if(distanceToTurret <= 14)
+        if(distanceToTurret <= 20)
         {
             shooting = true;
         }

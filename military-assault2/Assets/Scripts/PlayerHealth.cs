@@ -5,8 +5,8 @@ using TMPro;
 
 public class PlayerHealth : MonoBehaviour
 {
-  public float maxHealth = 100;
-  public float curHealth = 100;
+  public float maxHealth = 200;
+  public float curHealth = 200;
  
   public GameObject player;
   public Transform medkid;

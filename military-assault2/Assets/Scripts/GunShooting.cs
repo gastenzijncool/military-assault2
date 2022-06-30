@@ -65,9 +65,15 @@ public class GunShooting : MonoBehaviour
         {
             bulletsShot = bulletsPerTap;
             Shoot();
-            gunShot.Play();
+            gunShot.PlayOneShot(gunShot.clip);
+            //gunShot.volume = 1f;
             gun.Play();
+            
         }
+       // else
+       // {
+        //    gunShot.volume = 0f;
+       // }
     }
     private void Shoot()
     {
