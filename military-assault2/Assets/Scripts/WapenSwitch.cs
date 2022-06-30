@@ -6,6 +6,7 @@ public class WapenSwitch : MonoBehaviour
 {
     public GameObject gun;
     public Transform gunTransform;
+    public Transform akTransform;
     public GameObject gunMagazine;
 
     public GameObject ak;
@@ -34,7 +35,7 @@ public class WapenSwitch : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        float dist = Vector3.Distance(gunTransform.position, transform.position);
+        float dist = Vector3.Distance(akTransform.position, transform.position);
         distanceToAk = dist;
 
         float distC4 = Vector3.Distance(c4.position, transform.position);

@@ -10487,7 +10487,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 693723741}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 21feb746dce97484dbd6e8f4a4242d1c, type: 3}
   m_Name: 
@@ -10616,6 +10616,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gun: {fileID: 197804476}
   gunTransform: {fileID: 197804477}
+  akTransform: {fileID: 2091817196}
   gunMagazine: {fileID: 8355354346398262968}
   ak: {fileID: 1463079072}
   ak2: {fileID: 2091817195}
@@ -10638,7 +10639,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
+  m_Size: {x: 1, y: 0.9, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &696349809
 GameObject:
@@ -11140,7 +11141,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 7f617681ac08f1a44b68c54dc9eb678a, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.75
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -34829,6 +34830,11 @@ PrefabInstance:
 --- !u!1 &2091817195 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 2415e91ff42850f478e4f4e126644cd4, type: 3}
+  m_PrefabInstance: {fileID: 2091817194}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &2091817196 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 2415e91ff42850f478e4f4e126644cd4, type: 3}
   m_PrefabInstance: {fileID: 2091817194}
   m_PrefabAsset: {fileID: 0}
 --- !u!33 &2097863343

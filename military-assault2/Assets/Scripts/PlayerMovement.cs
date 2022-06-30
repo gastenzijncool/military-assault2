@@ -63,39 +63,39 @@ public class PlayerMovement : MonoBehaviour
             walkSpeed = 5f;
         }
 
-        if (Input.GetKey(KeyCode.LeftControl))
-        {
-            isCrouching = true;
-            walkSpeed = crouchSpeed;
-        }
-        else
-        {
-            isCrouching = false;
-            if (isCrouching == false)
-            {
-              if(isSprinting == false)
-              {
-                walkSpeed = 5f;
-              }
-            }
-        }
-
-        if (Input.GetKeyDown(KeyCode.LeftControl))
-        {
-            crouchToggle = true;
-            if (crouchToggle == true)
-            {
-                cameraPlayer.localPosition -= new Vector3(0f, 0.30f, 0f);
-                gun.localPosition -= new Vector3(0f, 0.30f, 0f);
-            }
-
-        }
-        else if(Input.GetKeyUp(KeyCode.LeftControl))
-        {
-            crouchToggle = false;
-            cameraPlayer.localPosition += new Vector3(0f, 0.30f, 0f);
-            gun.localPosition += new Vector3(0f, 0.30f, 0f);
-        }
+        //if (Input.GetKey(KeyCode.LeftControl))
+        //{
+        //   isCrouching = true;
+        //    walkSpeed = crouchSpeed;
+        //}
+        //else
+        //{
+        //    isCrouching = false;
+        //    if (isCrouching == false)
+        //    {
+        //      if(isSprinting == false)
+        //      {
+        //        walkSpeed = 5f;
+        //      }
+        //    }
+        //}
+        //
+        //if (Input.GetKeyDown(KeyCode.LeftControl))
+        //{
+        //    crouchToggle = true;
+        //    if (crouchToggle == true)
+        //    {
+        //        cameraPlayer.localPosition -= new Vector3(0f, 0.30f, 0f);
+        //        gun.localPosition -= new Vector3(0f, 0.30f, 0f);
+        //    }
+        //
+        //}
+        //else if(Input.GetKeyUp(KeyCode.LeftControl))
+        //{
+        //    crouchToggle = false;
+        //    cameraPlayer.localPosition += new Vector3(0f, 0.30f, 0f);
+        //    gun.localPosition += new Vector3(0f, 0.30f, 0f);
+        //}
     }// lelijke code!
     // Gemaakt door dariel nog, L
     

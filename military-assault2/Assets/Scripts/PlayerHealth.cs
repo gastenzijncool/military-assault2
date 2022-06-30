@@ -13,7 +13,7 @@ public class PlayerHealth : MonoBehaviour
   public GameObject medkitGameObject;
   public GameObject gameOver; 
   public bool slurpjuice;
-  public float slurpjuiceTime = 15;
+  public float slurpjuiceTime = 5;
 
   public TextMeshProUGUI healthText;
 
@@ -46,7 +46,7 @@ public class PlayerHealth : MonoBehaviour
 
         if (slurpjuice == true)
         {
-            curHealth += 5f * Time.deltaTime;
+            curHealth += 10f * Time.deltaTime;
         }
 
         if (curHealth > 100)

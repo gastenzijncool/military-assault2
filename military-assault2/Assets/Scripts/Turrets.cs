@@ -42,6 +42,7 @@ public class Turrets : MonoBehaviour
         turrets[2].SetActive(false);
         damageTurret = 5f;
         magazineSize = 5;
+        gunShot.volume = 0.75f;
     }
     public void TakeDamageTurret(int dmg)
     {
