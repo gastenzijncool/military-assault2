@@ -16,14 +16,16 @@ public class PlayerHealth : MonoBehaviour
   public float slurpjuiceTime = 5;
 
   public TextMeshProUGUI healthText;
-  public GameObject PressE;
-  public bool PressedE;
+  public GameObject pressE;
+  public bool pressedE;
+  public bool medkitPickUp;
 
   public float distanceToMedkid;
 
     private void Start()
     {
-        PressedE = false;
+        pressedE = false;
+        pressE.SetActive(false);
     }
     // Update is called once per frame
     void Update()
@@ -41,13 +43,16 @@ public class PlayerHealth : MonoBehaviour
 
         if (distanceToMedkid <= 2)
         {
-            PressedE = true;
-            if( PressedE == true)
+            pressedE = true;
+            if(pressedE == true)
             {
-                PressE.SetActive(true);
+                pressE.SetActive(true);
             }
+
             if(Input.GetKeyDown(KeyCode.E))
             {
+                medkitPickUp = true;
+
                 slurpjuice = true;
                 Invoke("SlurpjuiceBoolean", slurpjuiceTime);
 
@@ -55,8 +60,20 @@ public class PlayerHealth : MonoBehaviour
             }
         }
 
+        if(medkitPickUp == true)
+        {
+            pressE.SetActive(false);
+        }
+
+        if (distanceToMedkid >= 2)
+        {
+            pressedE = false;
+            pressE.SetActive(false);
+        }
+
         if (slurpjuice == true)
         {
+            pressE.SetActive(false);
             curHealth += 10f * Time.deltaTime;
         }
 

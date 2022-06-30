@@ -33,7 +33,6 @@ public class Turrets : MonoBehaviour
     public ParticleSystem muzzle;
 
     public Transform player;
-    public float distanceToTurret;
 
     // Start is called before the first frame update
     void Start()
@@ -98,13 +97,13 @@ public class Turrets : MonoBehaviour
             {
                 shooting = true;
             }
+
+            else
+            {
+                shooting = false;
+            }
         }
 
-        else
-        {
-            shooting = false;
-        }
-        
         if (bulletsLeft == 0)
         {
             Reload();

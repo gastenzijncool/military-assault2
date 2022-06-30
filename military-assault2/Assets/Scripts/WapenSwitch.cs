@@ -23,6 +23,11 @@ public class WapenSwitch : MonoBehaviour
     public GameObject winGame;
     public bool remoteInHand;
 
+    public GameObject pressEForAk;
+    public GameObject pressEForC4;
+    public bool pressedEAk;
+    public bool pressedEC4;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -43,7 +48,13 @@ public class WapenSwitch : MonoBehaviour
 
         if (distanceToAk <= 2)
         {
-            if(Input.GetKeyDown(KeyCode.E))
+            pressedEAk = true;
+            if (pressedEAk == true)
+            {
+                pressEForAk.SetActive(true);
+            }
+
+            if (Input.GetKeyDown(KeyCode.E))
             {
                 gunMagazine.SetActive(false);
                 akMagazine.SetActive(true);
@@ -54,6 +65,12 @@ public class WapenSwitch : MonoBehaviour
             } 
         }
 
+        if (distanceToAk >= 2)
+        {
+            pressedEAk = false;
+            pressEForAk.SetActive(false);
+        }
+
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
             akMagazine.SetActive(false);
@@ -62,10 +79,13 @@ public class WapenSwitch : MonoBehaviour
             ak.SetActive(false);
             c4Remote.SetActive(false);
             remoteInHand = false;
+            pressedEC4 = false;
         }
 
         if(akPickedUp == true)
         {
+            pressEForAk.SetActive(false);
+
             if (Input.GetKeyDown(KeyCode.Alpha2))
             {
                 gunMagazine.SetActive(false);
@@ -74,22 +94,35 @@ public class WapenSwitch : MonoBehaviour
                 ak.SetActive(true);
                 c4Remote.SetActive(false);
                 remoteInHand = false;
+                pressedEC4 = false;
             }
-        }
-
-        if (Input.GetKeyDown(KeyCode.Alpha3))
-        {
-            c4Remote.SetActive(true);
-            gun.SetActive(false);
-            ak.SetActive(false);
-            gunMagazine.SetActive(false);
-            akMagazine.SetActive(false);
-            remoteInHand = true;
         }
 
         if (distanceToC4 <= 10)
         {
-            if(remoteInHand == true)
+            if (Input.GetKeyDown(KeyCode.Alpha3))
+            {
+                c4Remote.SetActive(true);
+                gun.SetActive(false);
+                ak.SetActive(false);
+                gunMagazine.SetActive(false);
+                akMagazine.SetActive(false);
+                remoteInHand = true;
+
+                pressedEC4 = true;
+            }
+        
+            if (pressedEC4 == true)
+            {
+                pressEForC4.SetActive(true);
+            }
+
+            else
+            {
+                pressEForC4.SetActive(false);
+            }
+
+            if (remoteInHand == true)
             {
                 if (Input.GetKeyDown(KeyCode.E))
                 {
@@ -97,6 +130,12 @@ public class WapenSwitch : MonoBehaviour
                     Cursor.lockState = CursorLockMode.None;
                 }
             }  
+        }
+
+        if (distanceToC4 >= 10)
+        {
+            pressedEC4 = false;
+            pressEForC4.SetActive(false);
         }
     }
 }

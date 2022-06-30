@@ -26,11 +26,13 @@ public class CanvasScript : MonoBehaviour
     {
         Menu.SetActive(false);
         OptionsMenu.SetActive(true);
+        MenuON = true;
     }
     public void BackToMenu()
     {
         Menu.SetActive(true);
         OptionsMenu.SetActive(false);
+        MenuON = true;
     }
 
     List<int> widths = new List<int>() { 1920,1280,800 };
