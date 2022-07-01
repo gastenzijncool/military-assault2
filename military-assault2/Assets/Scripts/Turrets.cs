@@ -43,7 +43,7 @@ public class Turrets : MonoBehaviour
         damageTurret = 5f;
         magazineSize = 5;
         gunShot.volume = 0.75f;
-        range = 10f;
+        range = 15f;
     }
     public void TakeDamageTurret(int dmg)
     {
