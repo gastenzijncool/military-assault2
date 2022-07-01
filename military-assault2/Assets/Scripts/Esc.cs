@@ -9,23 +9,18 @@ public class Esc : MonoBehaviour
     public GameObject optionsMenu;
     public GameObject hud;
 
-    public static bool escMenuON;
-
-    private void Start()
-    {
-        escMenuON = true;
-    }
+    public static bool menuON;
     public void Back()
     {
         optionsMenu.SetActive(false);
         escMenu.SetActive(true);
-        escMenuON = true;
     }
     public void EscBack()
     {
         escMenu.SetActive(false);
         hud.SetActive(true);
         Cursor.lockState = CursorLockMode.Locked;
+        menuON = false;
     }
     public void Options()
     {
@@ -46,6 +41,13 @@ public class Esc : MonoBehaviour
             escMenu.SetActive(true);
             hud.SetActive(false);
             Cursor.lockState = CursorLockMode.None;
+
+            menuON = true;
+        }
+
+        if (menuON == false)
+        {
+            Time.timeScale = 1f;
         }
     }
 }

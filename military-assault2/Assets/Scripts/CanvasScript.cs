@@ -14,25 +14,31 @@ public class CanvasScript : MonoBehaviour
     {
         menuON = true;
     }
+    private void Update()
+    {
+        if(menuON == false)
+        {
+            Time.timeScale = 1f;
+        }
+    }
     public void MainMenu()
     {
         Menu.SetActive(false);
         Cursor.lockState = CursorLockMode.Locked;
         HUD.SetActive(true);
         Music.SetActive(false);
+
         menuON = false;
     }
     public void Options()
     {
         Menu.SetActive(false);
         OptionsMenu.SetActive(true);
-        menuON = true;
     }
     public void BackToMenu()
     {
         Menu.SetActive(true);
         OptionsMenu.SetActive(false);
-        menuON = true;
     }
 
     List<int> widths = new List<int>() { 1920,1280,800 };
