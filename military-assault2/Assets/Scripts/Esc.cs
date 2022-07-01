@@ -10,6 +10,11 @@ public class Esc : MonoBehaviour
     public GameObject hud;
 
     public static bool menuON;
+
+    private void Start()
+    {
+        menuON = false;
+    }
     public void Back()
     {
         optionsMenu.SetActive(false);
