@@ -128,6 +128,9 @@ public class WapenSwitch : MonoBehaviour
                 {
                     winGame.SetActive(true);
                     Cursor.lockState = CursorLockMode.None;
+                    pressEForC4.SetActive(false);
+                    pressedEC4 = false;
+                    remoteInHand = false;
                 }
             }  
         }
@@ -136,6 +139,8 @@ public class WapenSwitch : MonoBehaviour
         {
             pressedEC4 = false;
             pressEForC4.SetActive(false);
+            remoteInHand = false;
+            c4Remote.SetActive(false);
         }
     }
 }

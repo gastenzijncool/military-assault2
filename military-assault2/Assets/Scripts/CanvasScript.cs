@@ -8,11 +8,11 @@ public class CanvasScript : MonoBehaviour
     public GameObject OptionsMenu;
     public GameObject HUD;
     public GameObject Music;
-    public static bool MenuON;
+    public static bool menuON;
 
     private void Start()
     {
-        MenuON = true;
+        menuON = true;
     }
     public void MainMenu()
     {
@@ -20,19 +20,19 @@ public class CanvasScript : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
         HUD.SetActive(true);
         Music.SetActive(false);
-        MenuON = false;
+        menuON = false;
     }
     public void Options()
     {
         Menu.SetActive(false);
         OptionsMenu.SetActive(true);
-        MenuON = true;
+        menuON = true;
     }
     public void BackToMenu()
     {
         Menu.SetActive(true);
         OptionsMenu.SetActive(false);
-        MenuON = true;
+        menuON = true;
     }
 
     List<int> widths = new List<int>() { 1920,1280,800 };

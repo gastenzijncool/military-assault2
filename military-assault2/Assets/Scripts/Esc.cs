@@ -9,10 +9,17 @@ public class Esc : MonoBehaviour
     public GameObject optionsMenu;
     public GameObject hud;
 
+    public static bool escMenuON;
+
+    private void Start()
+    {
+        escMenuON = true;
+    }
     public void Back()
     {
         optionsMenu.SetActive(false);
         escMenu.SetActive(true);
+        escMenuON = true;
     }
     public void EscBack()
     {

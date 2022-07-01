@@ -35,8 +35,12 @@ public class GunShooting : MonoBehaviour
     }
     private void Update()
     {
-        if (CanvasScript.MenuON == true)
+        if (CanvasScript.menuON == true)
             return;
+
+        if (Esc.escMenuON == true)
+            return;
+
         MyInput();
         text.SetText(bulletsLeft + " / " + magazineSize);
     }
