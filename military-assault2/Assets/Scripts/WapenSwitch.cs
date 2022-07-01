@@ -22,6 +22,7 @@ public class WapenSwitch : MonoBehaviour
     public Transform c4;
     public GameObject winGame;
     public bool remoteInHand;
+    public GameObject c4sound;
 
     public GameObject pressEForAk;
     public GameObject pressEForC4;
@@ -131,6 +132,7 @@ public class WapenSwitch : MonoBehaviour
                     pressEForC4.SetActive(false);
                     pressedEC4 = false;
                     remoteInHand = false;
+                    c4sound.SetActive(true);
                 }
             }  
         }
