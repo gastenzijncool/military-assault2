@@ -26,6 +26,7 @@ public class WapenSwitch : MonoBehaviour
 
     public GameObject pressEForAk;
     public GameObject pressEForC4;
+    public GameObject press3;
     public bool pressedEAk;
     public bool pressedEC4;
 
@@ -101,6 +102,8 @@ public class WapenSwitch : MonoBehaviour
 
         if (distanceToC4 <= 10)
         {
+            press3.SetActive(true);
+
             if (Input.GetKeyDown(KeyCode.Alpha3))
             {
                 c4Remote.SetActive(true);
@@ -116,6 +119,7 @@ public class WapenSwitch : MonoBehaviour
             if (pressedEC4 == true)
             {
                 pressEForC4.SetActive(true);
+                press3.SetActive(false);
             }
 
             else
@@ -133,6 +137,7 @@ public class WapenSwitch : MonoBehaviour
                     pressedEC4 = false;
                     remoteInHand = false;
                     c4sound.SetActive(true);
+                    press3.SetActive(false);
                 }
             }  
         }
@@ -143,6 +148,7 @@ public class WapenSwitch : MonoBehaviour
             pressEForC4.SetActive(false);
             remoteInHand = false;
             c4Remote.SetActive(false);
+            press3.SetActive(false);
         }
     }
 }

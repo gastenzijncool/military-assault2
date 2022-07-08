@@ -13,6 +13,7 @@ public class Turrets : MonoBehaviour
     public int magazineSize, bulletsPerTap;
     int bulletsLeft, bulletsShot;
     public float damageTurret;
+    public float delay;
 
     //bools 
     public bool shooting;
@@ -44,7 +45,9 @@ public class Turrets : MonoBehaviour
         magazineSize = 5;
         gunShot.volume = 0.75f;
         range = 15f;
-    }
+
+        delay = 0.5f;
+}
     public void TakeDamageTurret(int dmg)
     {
         health -= dmg;
@@ -112,8 +115,11 @@ public class Turrets : MonoBehaviour
         //Shoot
         if (readyToShoot && shooting && !reloading && bulletsLeft > 0)
         {
+            readyToShoot = false;
             bulletsShot = bulletsPerTap;
-            Shoot();
+
+            Invoke("Shoot", delay);
+
             gunShot.Play();
             muzzle.Play();
         }
@@ -122,12 +128,13 @@ public class Turrets : MonoBehaviour
     {
         readyToShoot = false;
 
-        PlayerHealth playerHealth = GameObject.Find("player").GetComponent<PlayerHealth>();
         //Raycast
+        PlayerHealth playerHealth = GameObject.Find("player").GetComponent<PlayerHealth>();
+
         if (Physics.Raycast(attackPoint.position, transform.forward, out rayHit, range))
         {
             if (rayHit.collider.CompareTag("Player"))
-            {   
+            {
                 playerHealth.AddjustCurrentHealth(damageTurret);
             }
         }
@@ -145,7 +152,10 @@ public class Turrets : MonoBehaviour
             Invoke("Shoot", timeBetweenShots);
         }
     }
-
+    private void ReadyToShoot()
+    {
+        readyToShoot = false;
+    }
     private void ResetShot()
     {
         readyToShoot = true;
