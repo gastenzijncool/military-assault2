@@ -5,12 +5,13 @@ using UnityEngine;
 public class PlayerJump : MonoBehaviour
 {
     public bool isGrounded;
+    public float jumpedFloat;
 
     public Vector3 jumpPower;
 
     public void Start()
     {
-        jumpPower.y = 5;
+        //jumpPower.y = 5;
     }
     void Update()
     {
@@ -19,7 +20,12 @@ public class PlayerJump : MonoBehaviour
             if (Input.GetButtonDown("Jump"))
             {
                 GetComponent<Rigidbody>().velocity += jumpPower;
-                isGrounded = false;
+                jumpedFloat += 1;
+
+                if(jumpedFloat == 2)
+                {
+                    isGrounded = false;
+                }
             }
         }
         
@@ -30,6 +36,7 @@ public class PlayerJump : MonoBehaviour
         if(collision.gameObject.tag == "Untagged")
         {
             isGrounded = true;
+            jumpedFloat = 0;
         }
     }
 }
