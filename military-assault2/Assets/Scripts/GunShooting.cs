@@ -91,19 +91,14 @@ public class GunShooting : MonoBehaviour
 
             if (rayHit.collider.CompareTag("Enemy"))
             {
-                //Debug.Log("damageGun" + damageGun);
                 rayHit.collider.GetComponent<EnemyHealth2>().TakeDamage(damageGun);
             }
 
             if (rayHit.collider.CompareTag("Turret"))
             {
-                //Debug.Log("damageGun" + damageGun);
                 rayHit.collider.GetComponent<Turrets>().TakeDamageTurret(damageGun);
             }
         }
-
-        //Graphics
-        //Instantiate(muzzleFlash, attackPoint.position, Quaternion.identity);
 
         bulletsLeft--;
         bulletsShot--;

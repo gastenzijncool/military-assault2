@@ -5,32 +5,28 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     public Vector3 movement;
+
     public float horizontal;
     public float vertical;
-    public float walkSpeed;
-    public float sprintSpeed;
-    public float crouchSpeed;
-    public bool isSprinting;
-    public bool isWalking;
-    public bool isCrouching;
-    public Transform cam;
-    public bool crouchToggle;
-    public bool standingStill;
-    public Transform player;
-    public RaycastHit hit;
+
+    public float speed;
+    public float superRunning;
+
+    public bool isSuperRunning;
+    public float superRunningFloatFalse;
+    public float superRunningFloatTrue;
+
     public float zerospeed;
     public AudioSource walking;
 
-    public Transform cameraPlayer;
-    public Transform gun;
-
     void Start()
     {
-        //rb = gameObject.GetComponent<Rigidbody3D>();
-        crouchSpeed = 2f;
-        walkSpeed = 5f;
-        sprintSpeed = 7f;
-        
+        speed = 5f;
+
+        superRunningFloatFalse = 2f;
+        superRunningFloatTrue = 10f;
+
+        isSuperRunning = true;
     }
 
     void Update()
@@ -39,7 +35,8 @@ public class PlayerMovement : MonoBehaviour
         movement.x = horizontal;
         vertical = Input.GetAxis("Vertical");
         movement.z = vertical;
-        transform.Translate(movement * walkSpeed * Time.deltaTime);
+
+        transform.Translate(movement * speed * Time.deltaTime);
 
         if (movement != Vector3.zero)
         {
@@ -52,52 +49,35 @@ public class PlayerMovement : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.LeftShift))
         {
-            isSprinting = true;
-            isWalking = false;
-            walkSpeed = 7f;
+            speed = 7f;
         }
-        else if(Input.GetKeyUp(KeyCode.LeftShift))
+        else if (Input.GetKeyUp(KeyCode.LeftShift))
         {
-            isSprinting = false;
-            isWalking = true;
-            walkSpeed = 5f;
+            speed = 5f;
         }
 
-        //if (Input.GetKey(KeyCode.LeftControl))
-        //{
-        //   isCrouching = true;
-        //    walkSpeed = crouchSpeed;
-        //}
-        //else
-        //{
-        //    isCrouching = false;
-        //    if (isCrouching == false)
-        //    {
-        //      if(isSprinting == false)
-        //      {
-        //        walkSpeed = 5f;
-        //      }
-        //    }
-        //}
-        //
-        //if (Input.GetKeyDown(KeyCode.LeftControl))
-        //{
-        //    crouchToggle = true;
-        //    if (crouchToggle == true)
-        //    {
-        //        cameraPlayer.localPosition -= new Vector3(0f, 0.30f, 0f);
-        //        gun.localPosition -= new Vector3(0f, 0.30f, 0f);
-        //    }
-        //
-        //}
-        //else if(Input.GetKeyUp(KeyCode.LeftControl))
-        //{
-        //    crouchToggle = false;
-        //    cameraPlayer.localPosition += new Vector3(0f, 0.30f, 0f);
-        //    gun.localPosition += new Vector3(0f, 0.30f, 0f);
-        //}
-    }// lelijke code!
-    // Gemaakt door dariel nog, L
-    
+        if(isSuperRunning == true)
+        {
+            if (Input.GetKey(KeyCode.C))
+            {
+                speed = 15f;
+
+                Invoke("SuperRunningFalse", superRunningFloatFalse);
+            }
+        }
+    }
+    private void SuperRunningFalse()
+    {
+        isSuperRunning = false;
+
+        speed = 5f;
+
+        Invoke("SuperRunningTrue", superRunningFloatTrue);
+    }
+
+    private void SuperRunningTrue()
+    {
+        isSuperRunning = true;
+    }
 }
 
