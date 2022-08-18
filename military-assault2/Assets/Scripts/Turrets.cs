@@ -22,7 +22,8 @@ public class Turrets : MonoBehaviour
     public bool shooting;
     bool reloading;
     bool readyToShoot;
-    private bool invisible;
+
+    public bool invisible;
     private bool invisibleStart;
 
     //Reference
@@ -55,6 +56,7 @@ public class Turrets : MonoBehaviour
 
         ShootingTrueTimer = 5f;
         ShootingFalseTimer = 10f;
+
         invisibleStart = true;
 }
     public void TakeDamageTurret(int dmg)
@@ -119,15 +121,18 @@ public class Turrets : MonoBehaviour
 
             }
         }
-        
-        if(invisible || invisibleStart == true)
+
+        if (invisible == true)
+        {
+            shooting = false;
+        }
+
+        if (invisibleStart == true)
         {
             if (Input.GetKeyDown(KeyCode.I))
             {
                 invisible = true;
                 invisibleStart = false;
-
-                shooting = false;
 
                 Invoke("ShootingTrue", ShootingTrueTimer);
             }
@@ -160,7 +165,7 @@ public class Turrets : MonoBehaviour
 
     private void ShootingFalse()
     {
-        invisible = true;
+        invisibleStart = true;
     }
     private void Shoot()
     {
