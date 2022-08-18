@@ -15,10 +15,15 @@ public class Turrets : MonoBehaviour
     public float damageTurret;
     public float delay;
 
+    public float ShootingTrueTimer;
+    public float ShootingFalseTimer;
+
     //bools 
     public bool shooting;
     bool reloading;
     bool readyToShoot;
+    private bool invisible;
+    private bool invisibleStart;
 
     //Reference
     public Transform attackPoint;
@@ -47,6 +52,10 @@ public class Turrets : MonoBehaviour
         range = 15f;
 
         delay = 0.5f;
+
+        ShootingTrueTimer = 5f;
+        ShootingFalseTimer = 10f;
+        invisibleStart = true;
 }
     public void TakeDamageTurret(int dmg)
     {
@@ -94,16 +103,33 @@ public class Turrets : MonoBehaviour
     }
     private void MyInput()
     {
-        if (Physics.Raycast(attackPoint.position, transform.forward, out rayHit, range))
+        if(invisible == false)
         {
-            if (rayHit.collider.CompareTag("Player"))
+            if (Physics.Raycast(attackPoint.position, transform.forward, out rayHit, range))
             {
-                shooting = true;
-            }
+                if (rayHit.collider.CompareTag("Player"))
+                {
+                    shooting = true;
+                }
 
-            else
+                else
+                {
+                    shooting = false;
+                }
+
+            }
+        }
+        
+        if(invisible || invisibleStart == true)
+        {
+            if (Input.GetKeyDown(KeyCode.I))
             {
+                invisible = true;
+                invisibleStart = false;
+
                 shooting = false;
+
+                Invoke("ShootingTrue", ShootingTrueTimer);
             }
         }
 
@@ -124,6 +150,18 @@ public class Turrets : MonoBehaviour
             muzzle.Play();
         }
     }
+
+    private void ShootingTrue()
+    {
+        invisible = false;
+
+        Invoke("ShootingFalse", ShootingFalseTimer);
+    }
+
+    private void ShootingFalse()
+    {
+        invisible = true;
+    }
     private void Shoot()
     {
         readyToShoot = false;
@@ -138,9 +176,6 @@ public class Turrets : MonoBehaviour
                 playerHealth.AddjustCurrentHealth(damageTurret);
             }
         }
-
-        //Graphics
-        //Instantiate(muzzleFlash, attackPoint.position, Quaternion.identity);
 
         bulletsLeft--;
         bulletsShot--;
