@@ -28,7 +28,6 @@ public class PlayerJump : MonoBehaviour
                 }
             }
         }
-        
     }
 
     private void OnCollisionEnter(Collision collision)
