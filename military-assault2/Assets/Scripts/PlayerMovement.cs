@@ -60,7 +60,7 @@ public class PlayerMovement : MonoBehaviour
         {
             if (Input.GetKey(KeyCode.C))
             {
-                speed = 15f;
+                speed = 9.5f;
 
                 Invoke("SuperRunningFalse", superRunningFloatFalse);
             }

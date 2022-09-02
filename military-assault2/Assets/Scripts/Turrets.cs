@@ -91,11 +91,6 @@ public class Turrets : MonoBehaviour
 
     public void Update()
     {
-        transform.LookAt(player);
-        Vector3 angles = transform.localEulerAngles;
-        angles.x = 0;
-        transform.localEulerAngles = angles;
-
         MyInput();
     }
     private void Awake()
@@ -107,6 +102,11 @@ public class Turrets : MonoBehaviour
     {
         if(invisible == false)
         {
+            transform.LookAt(player);
+            Vector3 angles = transform.localEulerAngles;
+            angles.x = 0;
+            transform.localEulerAngles = angles;
+
             if (Physics.Raycast(attackPoint.position, transform.forward, out rayHit, range))
             {
                 if (rayHit.collider.CompareTag("Player"))

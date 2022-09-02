@@ -4,38 +4,51 @@ using UnityEngine;
 
 public class Dash : MonoBehaviour
 {
-    public Rigidbody rb;
-
-    private float dashSpeed;
+    public float dashSpeed;
     public bool mayDash;
-
     private float mayDashTrueTimer;
+    private float canDashTrueTimer;
 
     private void Start()
     {
         mayDash = true;
-        dashSpeed = 700f;
 
         mayDashTrueTimer = 3f;
+        canDashTrueTimer = 0.3f;
+
+        dashSpeed = 25f;     
     }
     private void Update()
     {
-        if(mayDash == true)
+        if (mayDash == true)
         {
-            if (Input.GetButtonDown("F"))
+            if(GameObject.Find("player").GetComponent<PlayerJump>().isGrounded) 
             {
-                print("Dash Me Daddyyyy");
-                mayDash = false;
+                if (Input.GetButtonDown("F"))
+                {
+                    GetComponent<Rigidbody>().drag = 4;
 
-                rb.AddForce(transform.forward * dashSpeed);
+                    mayDash = false;
 
-                Invoke("MayDashTrue", mayDashTrueTimer);
-            }
+                    GameObject.Find("player").GetComponent<PlayerJump>().canDashing = false;
+
+                    GetComponent<Rigidbody>().velocity += transform.forward * dashSpeed;
+
+                    Invoke("MayDashTrue", mayDashTrueTimer);
+                    Invoke("CanDash", canDashTrueTimer);
+                }
+            }   
         }    
     }
     private void MayDashTrue()
     {
         mayDash = true;
+    }
+    private void CanDash()
+    {
+        GameObject.Find("player").GetComponent<PlayerJump>().canDashing = true;
+
+        GetComponent<Rigidbody>().drag = 1;
     }
 }
 

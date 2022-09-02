@@ -7,6 +7,7 @@ TagManager:
   - Enemy
   - Floor
   - Turret
+  - Poort
   layers:
   - Default
   - TransparentFX
